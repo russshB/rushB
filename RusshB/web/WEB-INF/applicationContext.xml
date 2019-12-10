@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <context:component-scan base-package="com.qdu.dao" />
+    <context:component-scan base-package="com.qdu.service" />
+    <context:property-placeholder location="classpath:properties/jdbc.properties"/>
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driverClass}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+     
+    <bean id="springSessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <!--读取Hibernate核心配置文件-->
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.qdu.pojo.Users</value>
+                <value>com.qdu.pojo.Post</value>
+                <value>com.qdu.pojo.Administer</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=${hibernate.dialect}
+                hibernate.show_sql=${hibernate.show_sql}
+                hibernate.fomat_sql=${hibernate.fomat_sql}
+            </value>
+        </property>
+    </bean>
+    
+    <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="springSessionFactory"/>
+    </bean>
+     
+    <tx:annotation-driven transaction-manager="txManager"/>
+     
+    
+</beans>
