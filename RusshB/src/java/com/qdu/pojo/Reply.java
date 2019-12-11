@@ -37,6 +37,8 @@ public class Reply  implements java.io.Serializable {
      private Users users;
      @Column(name="Rcontent", nullable=false)
      private String rcontent;
+     @Column(name = "Rpower")
+    private Integer Rpower;
      @Temporal(TemporalType.TIMESTAMP)
      @Column(name="Rtime", nullable=false, length=23)
      private Date rtime;

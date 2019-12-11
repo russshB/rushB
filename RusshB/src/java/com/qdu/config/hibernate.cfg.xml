@@ -6,11 +6,5 @@
     <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=Russh</property>
     <property name="hibernate.connection.username">sa</property>
     <property name="hibernate.connection.password">sa</property>
-    <mapping resource="com/qdu/pojo/Reply.hbm.xml"/>
-    <mapping resource="com/qdu/pojo/Message.hbm.xml"/>
-    <mapping resource="com/qdu/pojo/Users.hbm.xml"/>
-    <mapping resource="com/qdu/pojo/Blockers.hbm.xml"/>
-    <mapping resource="com/qdu/pojo/Administer.hbm.xml"/>
-    <mapping resource="com/qdu/pojo/Post.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

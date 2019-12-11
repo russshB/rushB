@@ -1,4 +1,3 @@
-
 create database Russh
 go
 use Russh
@@ -23,6 +22,7 @@ Ptitle nvarchar(50) not null,
 Pabstr nvarchar(20) not null,
 Pdetails nvarchar(300) not null,
 Pblock nvarchar(20) not null,
+Ppower int default 0,
 Preadnum int default 0,
 foreign key(Puser) references Users(Uid)
 )
@@ -32,6 +32,7 @@ Rid nvarchar(20) primary key,
 Rpid nvarchar(20) not null,
 Ruid nvarchar(20) not null,
 Rcontent nvarchar(50) not null,
+Rpower int default 0,
 Rtime datetime not null,
 foreign key(Rpid) references Post(Pid),
 foreign key(Ruid) references Users(Uid)
@@ -72,19 +73,19 @@ insert into Users values
 go
 
 insert into Post values
-('P001','U001','张三の帖子','ko no dio da！','我真是high到不行啊！.jpg','B001',1),
-('P002','U002','李四の帖子','ko no dio da！','我真是high到不行啊！.jpg','B002',0),
-('P003','U003','王五の帖子','ko no dio da！','我真是high到不行啊！.jpg','B003',0),
-('P004','U004','赵六の帖子','ko no dio da！','我真是high到不行啊！.jpg','B004',0),
-('P005','U005','jojoの帖子','ko no dio da！','我真是high到不行啊！.jpg','B005',3)
+('P001','U001','张三の帖子','ko no dio da！','我真是high到不行啊！.jpg','B001',0,1),
+('P002','U002','李四の帖子','ko no dio da！','我真是high到不行啊！.jpg','B002',0,0),
+('P003','U003','王五の帖子','ko no dio da！','我真是high到不行啊！.jpg','B003',0,0),
+('P004','U004','赵六の帖子','ko no dio da！','我真是high到不行啊！.jpg','B004',0,0),
+('P005','U005','jojoの帖子','ko no dio da！','我真是high到不行啊！.jpg','B005',0,3)
 go
 
 insert into Reply values
-('R001','P001','U001','ko no dio da！','1999-1-1'),
-('R002','P002','U002','ko no dio da！','1999-1-2'),
-('R003','P003','U003','ko no dio da！','1999-1-3'),
-('R004','P004','U004','ko no dio da！','1999-1-4'),
-('R005','P005','U005','ko no dio da！','1999-1-5')
+('R001','P001','U001','ko no dio da！',0,'1999-1-1'),
+('R002','P002','U002','ko no dio da！',0,'1999-1-2'),
+('R003','P003','U003','ko no dio da！',0,'1999-1-3'),
+('R004','P004','U004','ko no dio da！',0,'1999-1-4'),
+('R005','P005','U005','ko no dio da！',0,'1999-1-5')
 go
 
 insert into Message values
@@ -105,6 +106,13 @@ go
 insert into Administer values
 ('A001','U001')
 
+--go
+--drop table Users
+--drop table Post
+--drop table Reply
+--drop table Message
+--drop table Blockers
+--drop table Administer
 go
 select * from Users
 select * from Post

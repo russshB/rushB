@@ -38,6 +38,8 @@ public class Post implements java.io.Serializable {
     private String pdetails;
     @Column(name = "Pblock", nullable = false)
     private String pblock;
+    @Column(name = "Ppower")
+    private Integer Ppower;
     @Column(name = "Preadnum")
     private Integer preadnum;
      @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.EAGER)    
