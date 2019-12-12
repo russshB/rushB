@@ -5,26 +5,21 @@
  */
 package com.qdu.test;
 
-import com.qdu.dao.UsersDao;
-import com.qdu.pojo.Message;
-import com.qdu.pojo.Users;
-import java.util.List;
+import com.qdu.dao.AdministerDao;
+import com.qdu.pojo.Administer;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
  * @author Administrator
  */
-public class Test1 {
+public class Test_getAdministerByUid {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("com/qdu/config/Spring_Config.xml");
-        UsersDao udao = (UsersDao)applicationContext.getBean("UsersDaoImpl");
-        Users user = udao.getUserById("U001");
-        List<Message> list  = user.getMessagesForMbeenUid();
-        for(Message m:list){
-            System.out.println(m.getMid());
-        }
-//        System.out.println(user.getMessagesForMuid());
+        AdministerDao administerDao =(AdministerDao)applicationContext.getBean("AdministerDaoImpl");
         
+        Administer administer = administerDao.getAdministerByUid("U001");
+        System.out.println(administer.getAid());
+    
     }
 }

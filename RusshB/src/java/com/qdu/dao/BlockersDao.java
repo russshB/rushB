@@ -6,6 +6,7 @@
 package com.qdu.dao;
 
 import com.qdu.pojo.Blockers;
+import java.util.List;
 
 /**
  *
@@ -15,11 +16,11 @@ public interface BlockersDao {
     //根据Bid获得版主信息
     Blockers getBlockersByBid(String bid);
     //根据Uid获得版主信息
-    Blockers getBlockersByUid(String uid);
+    List<Blockers> getBlockersByUid(String uid);
     //新增版主
-    void addBlocker(Blockers blockers);
+    Boolean addBlocker(Blockers blockers);
     //根据bid删除版主信息
-    void deleteBlocker(String bid);
+    Boolean deleteBlocker(String bid);
     //修改版主信息
     void updateBlocker(Blockers blockers);
     

@@ -17,9 +17,10 @@
     <context:component-scan base-package="com.qdu.dao,com.qdu,pojo,com.qdu.service"/>
     <context:property-placeholder location="classpath:properties/jdbc.properties"/>
      
-<!--    <bean id="AdministerDaoImpl" class="com.qdu.dao.AdministerDaoImpl"></bean>
+    <bean id="AdministerDaoImpl" class="com.qdu.dao.AdministerDaoImpl"></bean>
     <bean id="PostDaoImpl" class="com.qdu.dao.PostDaoImpl"></bean>
--->    <bean id="UsersDaoImpl" class="com.qdu.dao.UsersDaoImpl"></bean><!--
+    <bean id="UsersDaoImpl" class="com.qdu.dao.UsersDaoImpl"></bean>
+    <bean id="BlockersDaoImpl" class="com.qdu.dao.BlockersDaoImpl"></bean><!--
     <bean id="PostServiceImpl" class="com.qdu.service.PostServiceImpl"></bean>
     <bean id="AdministerServiceImpl" class="com.qdu.service.AdministerServiceImpl"></bean>-->
 <!--    <bean id="UsersServiceImpl" class="com.qdu.service.UsersServiceImpl"></bean>-->

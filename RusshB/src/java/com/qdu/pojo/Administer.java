@@ -7,8 +7,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -25,7 +27,7 @@ public class Administer implements java.io.Serializable {
     @Column(name = "Aid", unique = true, nullable = false)
     private String aid;
     @JoinColumn(name = "Auid", nullable = false)
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne
     private Users users;
 
     public Administer() {

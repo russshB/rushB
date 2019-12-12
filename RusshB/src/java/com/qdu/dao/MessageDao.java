@@ -18,9 +18,9 @@ public interface MessageDao {
     //获得发送给某个用户的所有信息
     List<Message> getAllMessageByBeenUser(String uid);
     //添加新的信息
-    void addMessage(Message message);
+    Boolean addMessage(Message message);
     //根据id删除信息
-    void deleteMessage(String mid);
+    Boolean deleteMessage(String mid);
     //修改信息
     void updateMessage(Message message);
 }

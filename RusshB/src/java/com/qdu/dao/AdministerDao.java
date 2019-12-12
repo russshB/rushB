@@ -13,13 +13,13 @@ import com.qdu.pojo.Administer;
  */
 public interface AdministerDao {
      //根据aid获得管理员信息
-    Administer getAdministerByBid(String aid);
+    Administer getAdministerByAid(String aid);
     //根据Uid获得管理员信息
     Administer getAdministerByUid(String uid);
     //新增管理员
-    void addAdminister(Administer administer);
+    Boolean addAdminister(Administer administer);
     //根据aid删除管理员信息
-    void deleteAdminister(String aid);
+    Boolean deleteAdminister(String aid);
     //修改管理员信息
     void updateAdminister(Administer administer);
 }

@@ -49,13 +49,13 @@ foreign key(Muid) references Users(Uid)
 )
 go
 create table Administer(
-Aid nvarchar(20) primary key,
+Aid nvarchar(20)primary key ,
 Auid nvarchar(20) not null,
 foreign key (Auid) references Users(Uid)
 )
 go
 create table Blockers(
-Bid nvarchar(20) primary key,
+Bid nvarchar(20)primary key,
 Buid nvarchar(20) not null,
 foreign key (Buid) references Users(Uid)
 )

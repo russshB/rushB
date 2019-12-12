@@ -18,9 +18,9 @@ public interface replyDao {
     //获得所有回复同一条帖子的回复
     List<Reply> getAllReplyByPid(String pid);
     //添加新的回复
-    void addReply(Reply reply);
+    Boolean addReply(Reply reply);
     //根据id删除回复
-    void deleteReplyByRid(String rid);
+    Boolean deleteReplyByRid(String rid);
     //修改回复信息
     void updateReply(Reply reply);
     
