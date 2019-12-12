@@ -10,13 +10,20 @@
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/dao/replyDao.java</file>
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/config/hibernate.cfg.xml</file>
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/dao/AdministerDao.java</file>
+            <file>file:/E:/Russhb/RusshB/src/java/com/qdu/config/Spring_Config.xml</file>
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/pojo/Administer.java</file>
+            <file>file:/E:/Russhb/RusshB/web/WEB-INF/web.xml</file>
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/pojo/Post.java</file>
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/dao/UsersDao.java</file>
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/dao/MessageDao.java</file>
+            <file>file:/E:/Russhb/RusshB/web/WEB-INF/dispatcher-servlet.xml</file>
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/pojo/Blockers.java</file>
+            <file>file:/E:/Russhb/RusshB/web/WEB-INF/jsp/index.jsp</file>
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/dao/PostDao.java</file>
+            <file>file:/E:/Russhb/RusshB/src/java/com/qdu/dao/UsersDaoImpl.java</file>
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/pojo/Reply.java</file>
+            <file>file:/E:/Russhb/RusshB/web/WEB-INF/applicationContext.xml</file>
+            <file>file:/E:/Russhb/RusshB/src/java/com/qdu/test/Test1.java</file>
         </group>
     </open-files>
 </project-private>

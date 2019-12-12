@@ -6,7 +6,9 @@
 package com.qdu.test;
 
 import com.qdu.dao.UsersDao;
+import com.qdu.pojo.Message;
 import com.qdu.pojo.Users;
+import java.util.Set;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -18,7 +20,11 @@ public class Test1 {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("com/qdu/config/Spring_Config.xml");
         UsersDao udao = (UsersDao)applicationContext.getBean("UsersDaoImpl");
         Users user = udao.getUserById("U001");
-        System.out.println(user.getUname());
+        Set<Message> list  = user.getMessagesForMbeenUid();
+        for(Message m:list){
+            System.out.println(m.getMid());
+        }
+//        System.out.println(user.getMessagesForMuid());
         
     }
 }

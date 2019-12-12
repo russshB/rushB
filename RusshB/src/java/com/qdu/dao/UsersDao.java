@@ -18,9 +18,9 @@ public interface UsersDao {
     //获得所有用户信息
     List<Users> getAllUsers();
     //添加新的用户信息
-    void addUser(Users user);
+    Boolean addUser(Users user);
     //根据id删除用户
-    void deleteUser(String uid);
+    Boolean deleteUser(String uid);
     //修改用户信息
-    void updateUser(Users user);
+    Boolean updateUser(Users user);
 }
