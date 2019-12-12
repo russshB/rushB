@@ -72,16 +72,10 @@ public class UsersDaoImpl implements UsersDao {
     }
 
     @Override
-    public Boolean updateUser(Users user) {
+    public void updateUser(Users user) {
         Session session = sessionFactory.getCurrentSession();
-//        session.update(user);
-        Users user_test = session.get(Users.class,user.getUid());
-        if(null!=user_test){
             session.update(user);
-            return true;
-        }else{
-            return false;
-        }
+            
     }
 
 }
