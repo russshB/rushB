@@ -21,17 +21,16 @@ import org.hibernate.annotations.FetchMode;
 @Entity
 @DynamicInsert
 @Table(name = "Post",
-         schema = "dbo",
-         catalog = "Russh"
+        schema = "dbo",
+        catalog = "Russh"
 )
 public class Post implements java.io.Serializable {
 
     @Id
     @Column(name = "Pid", unique = true, nullable = false)
     private String pid;
-    @JoinColumn(name = "Puser", nullable = false)
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Users users;
+    @Column(name = "Puser", unique = true, nullable = false)
+    private String user;
     @Column(name = "Ptitle", nullable = false)
     private String ptitle;
     @Column(name = "Pabstr", nullable = false)
@@ -40,36 +39,35 @@ public class Post implements java.io.Serializable {
     private String pdetails;
     @Column(name = "Pblock", nullable = false)
     private String pblock;
-    @Column(name = "Ppower",columnDefinition = "int default 0")
+    @Column(name = "Ppower", columnDefinition = "int default 0")
     private Integer Ppower;
-    @Column(name = "Preadnum",columnDefinition = "int default 0")
+    @Column(name = "Preadnum", columnDefinition = "int default 0")
     private Integer preadnum;
-    @Fetch(FetchMode.SUBSELECT)
-     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,fetch = FetchType.EAGER)    
-    private List<Reply> replies;
 
     public Post() {
     }
 
-    public Post(String pid, Users users, String ptitle, String pabstr, String pdetails, String pblock) {
+    public Post(String pid, String user, String ptitle, String pabstr, String pdetails, String pblock, Integer Ppower, Integer preadnum) {
         this.pid = pid;
-        this.users = users;
+        this.user = user;
+        this.ptitle = ptitle;
+        this.pabstr = pabstr;
+        this.pdetails = pdetails;
+        this.pblock = pblock;
+        this.Ppower = Ppower;
+        this.preadnum = preadnum;
+    }
+
+    public Post(String pid, String user, String ptitle, String pabstr, String pdetails, String pblock) {
+        this.pid = pid;
+        this.user = user;
         this.ptitle = ptitle;
         this.pabstr = pabstr;
         this.pdetails = pdetails;
         this.pblock = pblock;
     }
 
-    public Post(String pid, Users users, String ptitle, String pabstr, String pdetails, String pblock, Integer preadnum, List<Reply> replies) {
-        this.pid = pid;
-        this.users = users;
-        this.ptitle = ptitle;
-        this.pabstr = pabstr;
-        this.pdetails = pdetails;
-        this.pblock = pblock;
-        this.preadnum = preadnum;
-        this.replies = replies;
-    }
+    
 
     public String getPid() {
         return this.pid;
@@ -79,13 +77,6 @@ public class Post implements java.io.Serializable {
         this.pid = pid;
     }
 
-    public Users getUsers() {
-        return this.users;
-    }
-
-    public void setUsers(Users users) {
-        this.users = users;
-    }
 
     public String getPtitle() {
         return this.ptitle;
@@ -127,12 +118,21 @@ public class Post implements java.io.Serializable {
         this.preadnum = preadnum;
     }
 
-    public List<Reply> getReplies() {
-        return this.replies;
+    public String getUser() {
+        return user;
     }
 
-    public void setReplies(List<Reply> replies) {
-        this.replies = replies;
+    public void setUser(String user) {
+        this.user = user;
     }
 
+    public Integer getPpower() {
+        return Ppower;
+    }
+
+    public void setPpower(Integer Ppower) {
+        this.Ppower = Ppower;
+    }
+
+ 
 }

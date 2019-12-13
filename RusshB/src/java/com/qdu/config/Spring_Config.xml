@@ -6,27 +6,18 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:tx="http://www.springframework.org/schema/tx"
-
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+          http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 ">
 
-    
-    <context:component-scan base-package="com.qdu.dao,com.qdu,pojo,com.qdu.service"/>
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="com.qdu.dao"/>
+    <context:component-scan base-package="com.qdu.controller"/>
     <context:property-placeholder location="classpath:properties/jdbc.properties"/>
-     
-    <bean id="AdministerDaoImpl" class="com.qdu.dao.AdministerDaoImpl"></bean>
-    <bean id="PostDaoImpl" class="com.qdu.dao.PostDaoImpl"></bean>
-    <bean id="UsersDaoImpl" class="com.qdu.dao.UsersDaoImpl"></bean>
-    <bean id="BlockersDaoImpl" class="com.qdu.dao.BlockersDaoImpl"></bean><!--
-    <bean id="PostServiceImpl" class="com.qdu.service.PostServiceImpl"></bean>
-    <bean id="AdministerServiceImpl" class="com.qdu.service.AdministerServiceImpl"></bean>-->
-<!--    <bean id="UsersServiceImpl" class="com.qdu.service.UsersServiceImpl"></bean>-->
-    <bean id="administer" class="com.qdu.pojo.Administer" />
-    <bean id="Post" class="com.qdu.pojo.Post" />
-    <bean id="Users" class="com.qdu.pojo.Users" />
     
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${jdbc.driverClass}"/>
@@ -43,8 +34,6 @@
             <list>
                 <value>com.qdu.pojo.Users</value>
                 <value>com.qdu.pojo.Post</value>
-                <value>com.qdu.pojo.Administer</value>
-                <value>com.qdu.pojo.Blockers</value>
                 <value>com.qdu.pojo.Message</value>
                 <value>com.qdu.pojo.Reply</value>
             </list>

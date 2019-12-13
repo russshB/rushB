@@ -1,7 +1,6 @@
 package com.qdu.pojo;
 // Generated 2019-12-10 22:48:34 by Hibernate Tools 4.3.1
 
-
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
@@ -21,70 +20,75 @@ import org.hibernate.annotations.DynamicInsert;
  */
 @Entity
 @DynamicInsert
-@Table(name="Reply"
-    ,schema="dbo"
-    ,catalog="Russh"
+@Table(name = "Reply",
+         schema = "dbo",
+         catalog = "Russh"
 )
-public class Reply  implements java.io.Serializable {
+public class Reply implements java.io.Serializable {
 
-
-@Id
-    @Column(name="Rid", unique=true, nullable=false)
-     private String rid;
-     @JoinColumn(name="Rpid", nullable=false)
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-     private Post post;
-     @JoinColumn(name = "Ruid", nullable = false)
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-     private Users users;
-     @Column(name="Rcontent", nullable=false)
-     private String rcontent;
-     @Column(name = "Rpower",columnDefinition = "int default 0")
+    @Id
+    @Column(name = "Rid", unique = true, nullable = false)
+    private String rid;
+    @Column(name = "Rpid", nullable = false)
+    private String pid;
+    @Column(name = "Ruid", nullable = false)
+    private String uid;
+    @Column(name = "Rcontent", nullable = false)
+    private String rcontent;
+    @Column(name = "Rpower", columnDefinition = "int default 0")
     private Integer Rpower;
-     @Temporal(TemporalType.TIMESTAMP)
-     @Column(name="Rtime", nullable=false, length=23)
-     private Date rtime;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "Rtime", nullable = false, length = 23)
+    private Date rtime;
 
     public Reply() {
     }
 
-    public Reply(String rid, Post post, Users users, String rcontent, Date rtime) {
-       this.rid = rid;
-       this.post = post;
-       this.users = users;
-       this.rcontent = rcontent;
-       this.rtime = rtime;
+    public Reply(String rid, String pid, String uid, String rcontent, Integer Rpower, Date rtime) {
+        this.rid = rid;
+        this.pid = pid;
+        this.uid = uid;
+        this.rcontent = rcontent;
+        this.Rpower = Rpower;
+        this.rtime = rtime;
     }
-   
+
     public String getRid() {
         return this.rid;
     }
-    
+
     public void setRid(String rid) {
         this.rid = rid;
     }
 
-    public Post getPost() {
-        return this.post;
-    }
-    
-    public void setPost(Post post) {
-        this.post = post;
+    public String getPid() {
+        return pid;
     }
 
-    public Users getUsers() {
-        return this.users;
-    }
-    
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setPid(String pid) {
+        this.pid = pid;
     }
 
-    
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public Integer getRpower() {
+        return Rpower;
+    }
+
+    public void setRpower(Integer Rpower) {
+        this.Rpower = Rpower;
+    }
+
     public String getRcontent() {
         return this.rcontent;
     }
-    
+
     public void setRcontent(String rcontent) {
         this.rcontent = rcontent;
     }
@@ -92,14 +96,9 @@ public class Reply  implements java.io.Serializable {
     public Date getRtime() {
         return this.rtime;
     }
-    
+
     public void setRtime(Date rtime) {
         this.rtime = rtime;
     }
 
-
-
-
 }
-
-

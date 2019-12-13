@@ -12,7 +12,8 @@ Ubirthday datetime ,
 Upid nvarchar(30) not null,
 Uemail nvarchar(23),
 UphoneNo nvarchar(24),
-Upower int default 0
+Upower int default 0,
+URole int default 0
 )
 go
 create table Post(
@@ -48,28 +49,16 @@ foreign key(MbeenUid) references Users(Uid),
 foreign key(Muid) references Users(Uid)
 )
 go
-create table Administer(
-Aid nvarchar(20)primary key ,
-Auid nvarchar(20) not null,
-foreign key (Auid) references Users(Uid)
-)
-go
-create table Blockers(
-Bid nvarchar(20)primary key,
-Buid nvarchar(20) not null,
-foreign key (Buid) references Users(Uid)
-)
 
-go
 
 insert into Users values
-('U001','IU001','张三','123','男','1999-1-1','370684199901011111','1111111111@qq.com','13399991111',2),
-('U002','IU002','李四','123','男','1999-1-1','370684199901011112','1111111112@qq.com','13399991112',1),
-('U003','IU003','王五','123','男','1999-1-1','370684199901011113','1111111113@qq.com','13399991113',1),
-('U004','IU004','赵六','123','男','1999-1-1','370684199901011114','1111111114@qq.com','13399991114',1),
-('U005','IU005','jojo','123','男','1999-1-1','370684199901011115','1111111115@qq.com','13399991115',1),
-('U006','IU006','dio!','123','男','1999-1-1','370684199901011116','1111111116@qq.com','13399991116',0),
-('U007','IU006','卡兹','123','男','1999-1-1','370684199901011117','1111111117@qq.com','13399991117',0)
+('U001','IU001','张三','123','男','1999-1-1','370684199901011111','1111111111@qq.com','13399991111',2,0),
+('U002','IU002','李四','123','男','1999-1-1','370684199901011112','1111111112@qq.com','13399991112',1,0),
+('U003','IU003','王五','123','男','1999-1-1','370684199901011113','1111111113@qq.com','13399991113',1,0),
+('U004','IU004','赵六','123','男','1999-1-1','370684199901011114','1111111114@qq.com','13399991114',1,0),
+('U005','IU005','jojo','123','男','1999-1-1','370684199901011115','1111111115@qq.com','13399991115',1,0),
+('U006','IU006','dio!','123','男','1999-1-1','370684199901011116','1111111116@qq.com','13399991116',0,0),
+('U007','IU006','卡兹','123','男','1999-1-1','370684199901011117','1111111117@qq.com','13399991117',0,0)
 go
 
 insert into Post values
@@ -96,15 +85,6 @@ insert into Message values
 ('M005','1999-1-5','U005','U001','ko no dio da！')
 go
 
-insert into Blockers values
-('B001','U001'),
-('B002','U002'),
-('B003','U003'),
-('B004','U004'),
-('B005','U005')
-go
-insert into Administer values
-('A001','U001')
 
 --go
 --drop table Users
@@ -118,6 +98,4 @@ select * from Users
 select * from Post
 select * from Reply
 select * from Message
-select * from Blockers
-select * from Administer
 go

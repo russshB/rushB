@@ -6,6 +6,7 @@
 package com.qdu.dao;
 
 import com.qdu.pojo.Message;
+import java.io.Serializable;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.hibernate.Session;
@@ -20,23 +21,21 @@ import org.springframework.stereotype.Repository;
  * @author Administrator
  */
 @Transactional
-@Repository
-@Component("MessageDaoImpl")
-public class MessageDaoImpl implements MessageDao{
+@Repository("MessageDaoImpl")
+public class MessageDaoImpl implements Serializable,MessageDao{
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
     public Message getMessageById(String mid) {
         Session session = sessionFactory.getCurrentSession();
-        Message m = session.get(Message.class, mid);
-        return m;
+        return session.get(Message.class, mid);
     }
 
     @Override
     public List<Message> getAllMessageByBeenUser(String uid) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from Message where usersByMbeenUid.getUid() = :uid");
+        Query query = session.createQuery("from Message where beenuid = :uid");
         query.setParameter("uid", uid);
         List<Message>  list = query.list();
         
@@ -46,8 +45,7 @@ public class MessageDaoImpl implements MessageDao{
     @Override
     public Boolean addMessage(Message message) {
         Session session = sessionFactory.getCurrentSession();
-        Message message_test = session.get(Message.class,message.getMid());
-        if(message_test!=null){
+        if(session.get(Message.class,message.getMid())==null){
             session.save(message);
             return true;
         }else{
@@ -59,9 +57,8 @@ public class MessageDaoImpl implements MessageDao{
     @Override
     public Boolean deleteMessage(String mid) {
         Session session = sessionFactory.getCurrentSession();
-        Message message_test = session.get(Message.class,mid);
-        if(message_test!=null){
-            session.delete(message_test);
+        if(session.get(Message.class,mid)!=null){
+            session.delete(session.get(Message.class,mid));
             return true;
         }else{
             return false;
@@ -69,9 +66,18 @@ public class MessageDaoImpl implements MessageDao{
     }
 
     @Override
-    public void updateMessage(Message message) {
+    public void updateMessage(String mid) {
         Session session = sessionFactory.getCurrentSession();
-        session.update(message);
+        session.update(session.get(Message.class,mid));
+    }
+
+    @Override
+    public List<Message> getAllMessageByUser(String uid) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Message where muid = :mid");
+        query.setParameter("muid", uid);
+        List<Message> list = query.list();
+        return list;
     }
     
 }

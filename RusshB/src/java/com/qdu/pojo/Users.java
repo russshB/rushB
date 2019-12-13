@@ -1,7 +1,6 @@
 package com.qdu.pojo;
 // Generated 2019-12-10 22:48:34 by Hibernate Tools 4.3.1
 
-
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -23,57 +22,53 @@ import org.hibernate.annotations.FetchMode;
  */
 @Entity
 @DynamicInsert
-@Table(name="Users"
-    ,schema="dbo"
-    ,catalog="Russh"
+@Table(name = "Users",
+         schema = "dbo",
+         catalog = "Russh"
 )
-public class Users  implements java.io.Serializable {
+public class Users implements java.io.Serializable {
 
+    @Id
+    @Column(name = "Uid", unique = true, nullable = false)
+    private String uid;
+    @Column(name = "Uimg", nullable = false)
+    private String uimg;
+    @Column(name = "Uname", nullable = false)
+    private String uname;
+    @Column(name = "Upwd", nullable = false)
+    private String upwd;
+    @Column(name = "UGender", nullable = false)
+    private String ugender;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "Ubirthday", length = 23)
+    private Date ubirthday;
+    @Column(name = "Upid", nullable = false)
+    private String upid;
+    @Column(name = "Uemail")
+    private String uemail;
+    @Column(name = "UphoneNo")
+    private String uphoneNo;
+    @Column(name = "Upower", columnDefinition = "int default 0")
+    private Integer upower;
+    @Column(name = "URole", columnDefinition = "int default 0")
+    private Integer urole;
 
-@Id
-    @Column(name="Uid", unique=true, nullable=false)
-     private String uid;
-     @Column(name="Uimg", nullable=false)
-     private String uimg;
-     @Column(name="Uname", nullable=false)
-     private String uname;
-     @Column(name="Upwd", nullable=false)
-     private String upwd;
-     @Column(name="UGender", nullable=false)
-     private String ugender;
-     @Temporal(TemporalType.TIMESTAMP)
-     @Column(name="Ubirthday", length=23)
-     private Date ubirthday;
-     @Column(name="Upid", nullable=false)
-     private String upid;
-     @Column(name="Uemail")
-     private String uemail;
-     @Column(name="UphoneNo")
-     private String uphoneNo;
-     @Column(name="Upower",columnDefinition = "int default 0")
-     private Integer upower;
-     @Fetch(FetchMode.SUBSELECT)
-     @OneToMany(mappedBy = "usersByMbeenUid",cascade = CascadeType.ALL,fetch = FetchType.EAGER)    
-     private List<Message> messagesForMbeenUid;
-     @Fetch(FetchMode.SUBSELECT)
-     @OneToMany(mappedBy = "usersByMuid",cascade = CascadeType.ALL,fetch = FetchType.EAGER)  
-     private List<Message> messagesForMuid;
-     @Fetch(FetchMode.SUBSELECT)
-     @OneToMany(mappedBy = "users",cascade = CascadeType.ALL,fetch = FetchType.EAGER)  
-     private List<Reply> replies;
-     @Fetch(FetchMode.SUBSELECT)
-     @OneToMany(mappedBy = "users",cascade = CascadeType.ALL,fetch = FetchType.EAGER)  
-     private List<Blockers> blockerses ;
-     @Fetch(FetchMode.SUBSELECT)
-     @OneToMany(mappedBy = "users",cascade = CascadeType.ALL,fetch = FetchType.EAGER)    
-     private List<Post> posts;
-     @OneToOne(mappedBy = "users",cascade = CascadeType.ALL)
-     private Administer administers;
+    public Users(String uid, String uimg, String uname, String upwd, String ugender, Date ubirthday, String upid, String uemail, String uphoneNo, Integer upower) {
+        this.uid = uid;
+        this.uimg = uimg;
+        this.uname = uname;
+        this.upwd = upwd;
+        this.ugender = ugender;
+        this.ubirthday = ubirthday;
+        this.upid = upid;
+        this.uemail = uemail;
+        this.uphoneNo = uphoneNo;
+        this.upower = upower;
+    }
 
     public Users() {
     }
 
-	
     public Users(String uid, String uimg, String uname, String upwd, String ugender, String upid) {
         this.uid = uid;
         this.uimg = uimg;
@@ -82,65 +77,43 @@ public class Users  implements java.io.Serializable {
         this.ugender = ugender;
         this.upid = upid;
     }
-    public Users(String uid, String uimg, String uname, String upwd, String ugender, Date ubirthday, String upid, String uemail, String uphoneNo, Integer upower, List messagesForMbeenUid, List messagesForMuid, List replies, List blockerses, List posts, Administer administers) {
-       this.uid = uid;
-       this.uimg = uimg;
-       this.uname = uname;
-       this.upwd = upwd;
-       this.ugender = ugender;
-       this.ubirthday = ubirthday;
-       this.upid = upid;
-       this.uemail = uemail;
-       this.uphoneNo = uphoneNo;
-       this.upower = upower;
-       this.messagesForMbeenUid = messagesForMbeenUid;
-       this.messagesForMuid = messagesForMuid;
-       this.replies = replies;
-       this.blockerses = blockerses;
-       this.posts = posts;
-       this.administers = administers;
-    }
-   
+
     public String getUid() {
         return this.uid;
     }
-    
+
     public void setUid(String uid) {
         this.uid = uid;
     }
 
-    
     public String getUimg() {
         return this.uimg;
     }
-    
+
     public void setUimg(String uimg) {
         this.uimg = uimg;
     }
 
-    
     public String getUname() {
         return this.uname;
     }
-    
+
     public void setUname(String uname) {
         this.uname = uname;
     }
 
-    
     public String getUpwd() {
         return this.upwd;
     }
-    
+
     public void setUpwd(String upwd) {
         this.upwd = upwd;
     }
 
-    
     public String getUgender() {
         return this.ugender;
     }
-    
+
     public void setUgender(String ugender) {
         this.ugender = ugender;
     }
@@ -148,98 +121,41 @@ public class Users  implements java.io.Serializable {
     public Date getUbirthday() {
         return this.ubirthday;
     }
-    
+
     public void setUbirthday(Date ubirthday) {
         this.ubirthday = ubirthday;
     }
 
-    
     public String getUpid() {
         return this.upid;
     }
-    
+
     public void setUpid(String upid) {
         this.upid = upid;
     }
 
-    
     public String getUemail() {
         return this.uemail;
     }
-    
+
     public void setUemail(String uemail) {
         this.uemail = uemail;
     }
 
-    
     public String getUphoneNo() {
         return this.uphoneNo;
     }
-    
+
     public void setUphoneNo(String uphoneNo) {
         this.uphoneNo = uphoneNo;
     }
 
-    
     public Integer getUpower() {
         return this.upower;
     }
-    
+
     public void setUpower(Integer upower) {
         this.upower = upower;
     }
 
-    public List getMessagesForMbeenUid() {
-        return this.messagesForMbeenUid;
-    }
-    
-    public void setMessagesForMbeenUid(List messagesForMbeenUid) {
-        this.messagesForMbeenUid = messagesForMbeenUid;
-    }
-
-    public List getMessagesForMuid() {
-        return this.messagesForMuid;
-    }
-    
-    public void setMessagesForMuid(List messagesForMuid) {
-        this.messagesForMuid = messagesForMuid;
-    }
-
-    public List getReplies() {
-        return this.replies;
-    }
-    
-    public void setReplies(List replies) {
-        this.replies = replies;
-    }
-
-    public List getBlockerses() {
-        return this.blockerses;
-    }
-    
-    public void setBlockerses(List blockerses) {
-        this.blockerses = blockerses;
-    }
-
-    public List getPosts() {
-        return this.posts;
-    }
-    
-    public void setPosts(List posts) {
-        this.posts = posts;
-    }
-
-    public Administer getAdministers() {
-        return this.administers;
-    }
-    
-    public void setAdministers(Administer administers) {
-        this.administers = administers;
-    }
-
-
-
-
 }
-
-

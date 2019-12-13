@@ -17,10 +17,12 @@ public interface MessageDao {
     Message getMessageById(String mid);
     //获得发送给某个用户的所有信息
     List<Message> getAllMessageByBeenUser(String uid);
+    //获得某个用户发送的所有信息
+    List<Message> getAllMessageByUser(String uid);
     //添加新的信息
     Boolean addMessage(Message message);
     //根据id删除信息
     Boolean deleteMessage(String mid);
     //修改信息
-    void updateMessage(Message message);
+    void updateMessage(String mid);
 }

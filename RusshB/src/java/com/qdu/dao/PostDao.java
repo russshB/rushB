@@ -16,6 +16,10 @@ import java.util.List;
 public interface PostDao {
     //根据id获得帖子信息
     Post getPostById(String pid);
+    //依据权限等级获得所有帖子
+    List<Post> getAllPostByPower(String power);
+    //获得某个版块的所有帖子
+    List<Post> getAllPostByBlocks(String block);
     //获得所有帖子信息
     List<Post> getAllPost();
     //获取某个id帖子的所有回复
@@ -25,5 +29,5 @@ public interface PostDao {
     //根据id删除帖子
     Boolean deletePostById(String pid);
     //修改帖子信息
-    void updatePost(Post post);
+    void updatePost(String pid);
 }

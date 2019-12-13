@@ -22,5 +22,5 @@ public interface UsersDao {
     //根据id删除用户
     Boolean deleteUser(String uid);
     //修改用户信息
-    void updateUser(Users user);
+    void updateUser(String uid);
 }

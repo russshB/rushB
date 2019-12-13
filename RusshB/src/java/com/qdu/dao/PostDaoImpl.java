@@ -7,6 +7,7 @@ package com.qdu.dao;
 
 import com.qdu.pojo.Post;
 import com.qdu.pojo.Reply;
+import java.io.Serializable;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.hibernate.Session;
@@ -21,9 +22,8 @@ import org.springframework.stereotype.Repository;
  * @author Administrator
  */
 @Transactional
-@Repository
-@Component("PostDaoImpl")
-public class PostDaoImpl implements PostDao{
+@Repository("PostDaoImpl")
+public class PostDaoImpl implements Serializable,PostDao{
     
     @Autowired
     private SessionFactory sessionFactory;
@@ -31,10 +31,7 @@ public class PostDaoImpl implements PostDao{
     @Override
     public Post getPostById(String pid) {
         Session session = sessionFactory.getCurrentSession();
-        
-        Post post = session.get(Post.class, pid);
-        
-        return post;
+        return session.get(Post.class, pid);
     }
 
     @Override
@@ -48,9 +45,8 @@ public class PostDaoImpl implements PostDao{
     @Override
     public Boolean addPost(Post post) {
         Session session = sessionFactory.getCurrentSession();
-        Post post_test = getPostById(post.getPid());
-        if (null == post_test) {
-            session.save(post);
+        if (null == getPostById(post.getPid())) {
+            session.save(getPostById(post.getPid()));
             return true;
             
         } else {
@@ -62,10 +58,9 @@ public class PostDaoImpl implements PostDao{
     @Override
     public Boolean deletePostById(String pid) {
         Session session = sessionFactory.getCurrentSession();
-        
-        Post post = getPostById(pid);
-        if(null!=post){
-            session.delete(post);
+        session.get(Post.class, pid);
+        if(null!=session.get(Post.class, pid)){
+            session.delete(session.get(Post.class, pid));
             return true;
         }else{
             System.out.println("该帖子不存在");
@@ -74,9 +69,9 @@ public class PostDaoImpl implements PostDao{
     }
 
     @Override
-    public void updatePost(Post post) {
+    public void updatePost(String pid) {
          Session session = sessionFactory.getCurrentSession();
-            session.update(post);
+            session.update(session.get(Post.class, pid));
         
         
     }
@@ -84,10 +79,30 @@ public class PostDaoImpl implements PostDao{
     @Override
     public List<Reply> getAllReplyByPost(String pid) {
         Session session = sessionFactory.getCurrentSession();
-        Post post = getPostById(pid);
-        List<Reply> list = post.getReplies();
+        Query query = session.createQuery("from Reply where Rpid = :pid");
+        List<Reply> list = query.list();
         
         return list;
+    }
+
+    @Override
+    public List<Post> getAllPostByPower(String power) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Post where Ppower = :power");
+        query.setParameter("power",power);
+        List<Post> list = query.list();
+        
+        return list;
+    }
+
+    @Override
+    public List<Post> getAllPostByBlocks(String block) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Post where pblock = :block");
+        query.setParameter("pblock", block);
+        List<Post> list = query.list();
+        return list;
+        
     }
     
 }

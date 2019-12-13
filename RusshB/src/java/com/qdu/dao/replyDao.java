@@ -22,6 +22,6 @@ public interface replyDao {
     //根据id删除回复
     Boolean deleteReplyByRid(String rid);
     //修改回复信息
-    void updateReply(Reply reply);
+    void updateReply(String rid);
     
 }

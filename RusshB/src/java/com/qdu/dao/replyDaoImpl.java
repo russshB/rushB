@@ -7,10 +7,12 @@ package com.qdu.dao;
 
 import com.qdu.pojo.Post;
 import com.qdu.pojo.Reply;
+import java.io.Serializable;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -20,9 +22,8 @@ import org.springframework.stereotype.Repository;
  * @author Administrator
  */
 @Transactional
-@Repository
-@Component("ReplyDaoImpl")
-public class replyDaoImpl implements replyDao{
+@Repository("ReplyDaoImpl")
+public class replyDaoImpl implements Serializable,replyDao{
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -30,16 +31,14 @@ public class replyDaoImpl implements replyDao{
     @Override
     public Reply getReplyById(String rid) {
         Session session = sessionFactory.getCurrentSession();
-        Reply reply = session.get(Reply.class, rid);
-        return reply;
+        return session.get(Reply.class, rid);
     }
 
     @Override
     public List<Reply> getAllReplyByPid(String pid) {
         Session session = sessionFactory.getCurrentSession();
-        
-        Post post = session.get(Post.class, pid);
-        List<Reply> list = post.getReplies();
+        Query query = session.createQuery("from Reply where Rpid = :pid");
+        List<Reply> list = query.list();
         
         return list;
         
@@ -48,8 +47,7 @@ public class replyDaoImpl implements replyDao{
     @Override
     public Boolean addReply(Reply reply) {
         Session session  =sessionFactory.getCurrentSession();
-        Reply reply_test = session.get(Reply.class, reply.getRid());
-        if(null!=reply_test){
+        if(null==session.get(Reply.class, reply.getRid())){
             session.save(reply);
             return true;
         }else{
@@ -62,10 +60,8 @@ public class replyDaoImpl implements replyDao{
     public Boolean deleteReplyByRid(String rid) {
         Session session = sessionFactory.getCurrentSession();
         
-        Reply reply = session.get(Reply.class, rid);
-        
-        if(null!=reply){
-            session.delete(reply);
+        if(null!=session.get(Reply.class, rid)){
+            session.delete(session.get(Reply.class, rid));
             return true;
         }else{
             return false;
@@ -74,9 +70,9 @@ public class replyDaoImpl implements replyDao{
     }
 
     @Override
-    public void updateReply(Reply reply) {
+    public void updateReply(String rid) {
         Session session = sessionFactory.getCurrentSession();
-        session.update(reply);
+        session.update(session.get(Reply.class, rid));
         
     }
 
