@@ -99,7 +99,7 @@ public class PostDaoImpl implements Serializable,PostDao{
     public List<Post> getAllPostByBlocks(String block) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Post where pblock = :block");
-        query.setParameter("pblock", block);
+        query.setParameter("block", block);
         List<Post> list = query.list();
         return list;
         

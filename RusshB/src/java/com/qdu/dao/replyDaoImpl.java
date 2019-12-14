@@ -38,6 +38,7 @@ public class replyDaoImpl implements Serializable,replyDao{
     public List<Reply> getAllReplyByPid(String pid) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Reply where Rpid = :pid");
+        query.setParameter("pid", pid);
         List<Reply> list = query.list();
         
         return list;

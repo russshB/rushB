@@ -10,17 +10,8 @@
     </head>
 
     <body>
-        <table>
-            <tr>
-                <th>第一个板块的内容</th>
-            </tr>
-        </table>
-    <c:forEach var="post" items="B001">
-        <table>
-            <tr>
-                <td>${B001.getPdetails()}</td>
-            </tr>
-        </table>
+    <c:forEach var="post" items="${B001}">
+              ${post.getPdetails()}
     </c:forEach>
     </body>
 </html>
