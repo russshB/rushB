@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="lib/css/carousel.css">
+</head>
+<body>
+<div class="layui-container">
+    <div class="layui-row">
+        <ul class="layui-nav" lay-filter="">
+            <li class="layui-nav-item layui-this"><a href=""><i class="layui-icon" style="font-size: 28px;">&#xe609;</i>首页</a></li>
+            <li class="layui-nav-item"><a href="">分类区</a></li>
+            <li class="layui-nav-item"><a href="">发布区</a></li>
+            <li class="layui-nav-item layui-layout-right"><a href=""><img src="lib/images/57.jpeg" style="width: 50px;height: 50px;" class="layui-circle"></a></li>
+        </ul>
+    </div>
+    <div class="layui-row">
+        <ul>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+        </ul>
+    </div>
+</div>
+<script src="lib/layui/layui.js" charset="utf-8"></script>
+<script src="lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="lib/script.js"></script>
+<script src="lib/mousewords.js"></script>
+<script>
+    layui.use(['carousel','element'], function () {
+        var carousel = layui.carousel,
+            element = layui.element;
+        carousel.render({
+            elem: '#test1',
+            width: '100%',
+            arrow: 'always',
+            anim: 'default'
+        });
+    });
+</script>
+</body>
+</html>

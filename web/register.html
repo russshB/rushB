@@ -114,9 +114,9 @@
 </head>
 <body>
 <div class="layui-container">
-    <div class="layui-form login-form admin-login-background">
+    <form class="layui-form login-form admin-login-background" action="">
         <div class="layui-form-item logo-title">
-            <h1>Sherpa用户注册</h1>
+            <h1>用户注册<i class="layui-icon" style="font-size: 28px;">&#xe609;</i></h1>
         </div>
         <div class="layui-form-item">
             <label class="layui-icon layui-icon-user"></label>
@@ -160,7 +160,7 @@
         </div>
         <div class="layui-form-item" id="area-picker">
             <div class="layui-input-inline" style="width: 100px;padding-left: 0px;">
-                <select name="province" id="province" class="province-selector" data-value="广东省"
+                <select name="province" id="province" class="province-selector" data-value="广东省" lay-verify="required"
                         lay-filter="province-1">
                     <option value="">请选择省</option>
                 </select>
@@ -187,8 +187,7 @@
         <div class="layui-form-item">
             <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="login">注 册</button>
         </div>
-        </form>
-    </div>
+    </form>
     <div class="night">
         <div class="shooting_star"></div>
         <div class="shooting_star"></div>
@@ -262,8 +261,6 @@
             $.ajax({
                 url: './add',
                 method: 'post',
-
-
                 data: data.field,
                 dataType: 'JSON',
                 success: function (res) {
