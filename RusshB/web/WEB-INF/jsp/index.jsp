@@ -112,7 +112,7 @@
 <div class="layui-container">
     <div class="admin-login-background">
         <div class="layui-form login-form">
-            <form class="layui-form" action="user/register" method="post">
+            <form class="layui-form" action="do" method="post">
                 <div class="layui-form-item logo-title">
                     <h1>用户登录<i class="layui-icon" style="font-size: 28px;">&#xe609;</i></h1>
                 </div>

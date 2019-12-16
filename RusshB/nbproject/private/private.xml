@@ -3,8 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Russhb/RusshB/web/WEB-INF/dispatcher-servlet.xml</file>
+            <file>file:/E:/Russhb/RusshB/web/WEB-INF/jsp/loginError.jsp</file>
+            <file>file:/E:/Russhb/RusshB/web/WEB-INF/jsp/register.jsp</file>
+            <file>file:/E:/Russhb/RusshB/web/WEB-INF/jsp/index.jsp</file>
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/pojo/Users.java</file>
+            <file>file:/E:/Russhb/RusshB/src/java/com/qdu/config/Spring_Config.xml</file>
             <file>file:/E:/Russhb/RusshB/src/java/com/qdu/controller/IndexController.java</file>
+            <file>file:/E:/Russhb/RusshB/src/java/properties/jdbc.properties</file>
+            <file>file:/E:/Russhb/RusshB/web/WEB-INF/web.xml</file>
+            <file>file:/E:/Russhb/RusshB/web/WEB-INF/applicationContext.xml</file>
+            <file>file:/E:/Russhb/RusshB/src/java/com/qdu/controller/LoginController.java</file>
         </group>
     </open-files>
 </project-private>
