@@ -1,0 +1,26 @@
+body{
+    background-image: url("../images/91.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+#ullist{
+    border: 1px solid #fff;
+    margin-top: 60px;
+    background-color: #fff;
+    opacity: 0.5;
+}
+#ullist p{
+    margin-top: 10px;
+}
+.plist p{
+    width: 90%;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+.puser img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
