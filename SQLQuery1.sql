@@ -99,4 +99,4 @@ select * from Post
 select * from Reply
 select * from Message
 go
-delete from Users where uid = 'u0001'
+--delete from Users where uid = 'u0001'

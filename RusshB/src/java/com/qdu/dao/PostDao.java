@@ -7,6 +7,7 @@ package com.qdu.dao;
 
 import com.qdu.pojo.Post;
 import com.qdu.pojo.Reply;
+import com.qdu.pojo.Users;
 import java.util.List;
 
 /**
@@ -14,6 +15,7 @@ import java.util.List;
  * @author Administrator
  */
 public interface PostDao {
+
     //根据id获得帖子信息
     Post getPostById(String pid);
     //依据权限等级获得所有帖子

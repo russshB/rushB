@@ -27,10 +27,12 @@ public class Message implements java.io.Serializable {
     @Id
     @Column(name = "Mid", unique = true, nullable = false)
     private String mid;
-    @Column(name = "Mbeenuid", unique = true, nullable = false)
-    private String beenuid;
-    @Column(name = "Muid", unique = true, nullable = false)
-    private String muid;
+    @JoinColumn(name="MbeenUid")
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Users beenuser;
+    @JoinColumn(name="Muid")
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Users muser;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "Mdate", nullable = false, length = 23)
     private Date mdate;
@@ -40,15 +42,13 @@ public class Message implements java.io.Serializable {
     public Message() {
     }
 
-    public Message(String mid, String beenuid, String muid, Date mdate, String mdetail) {
+    public Message(String mid, Users beenuser, Users muser, Date mdate, String mdetail) {
         this.mid = mid;
-        this.beenuid = beenuid;
-        this.muid = muid;
+        this.beenuser = beenuser;
+        this.muser = muser;
         this.mdate = mdate;
         this.mdetail = mdetail;
     }
-
- 
 
     public String getMid() {
         return this.mid;
@@ -75,20 +75,21 @@ public class Message implements java.io.Serializable {
         this.mdetail = mdetail;
     }
 
-    public String getBeenuid() {
-        return beenuid;
+    public Users getBeenuser() {
+        return beenuser;
     }
 
-    public void setBeenuid(String beenuid) {
-        this.beenuid = beenuid;
+    public void setBeenuser(Users beenuser) {
+        this.beenuser = beenuser;
     }
 
-    public String getMuid() {
-        return muid;
+    public Users getMuser() {
+        return muser;
     }
 
-    public void setMuid(String muid) {
-        this.muid = muid;
+    public void setMuser(Users muser) {
+        this.muser = muser;
     }
+
 
 }

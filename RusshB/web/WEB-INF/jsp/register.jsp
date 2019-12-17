@@ -229,7 +229,7 @@
             layer.open({
                 content: '酷毙了',
                 yes: function (index, layero) {
-                    window.location = 'login.html';
+                    window.location = '${pageContext.request.contextPath}/login.html';
                 },
                 icon: 1,
                 area: ['500px', '300px']

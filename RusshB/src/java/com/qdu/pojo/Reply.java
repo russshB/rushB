@@ -29,10 +29,12 @@ public class Reply implements java.io.Serializable {
     @Id
     @Column(name = "Rid", unique = true, nullable = false)
     private String rid;
-    @Column(name = "Rpid", nullable = false)
-    private String pid;
-    @Column(name = "Ruid", nullable = false)
-    private String uid;
+    @JoinColumn(name="Rpid")
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Post post;
+    @JoinColumn(name="Ruid")
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Users ruser;
     @Column(name = "Rcontent", nullable = false)
     private String rcontent;
     @Column(name = "Rpower", columnDefinition = "int default 0")
@@ -44,14 +46,32 @@ public class Reply implements java.io.Serializable {
     public Reply() {
     }
 
-    public Reply(String rid, String pid, String uid, String rcontent, Integer Rpower, Date rtime) {
+    public Reply(String rid, Post post, Users user, String rcontent, Integer Rpower, Date rtime) {
         this.rid = rid;
-        this.pid = pid;
-        this.uid = uid;
+        this.post = post;
+        this.ruser = user;
         this.rcontent = rcontent;
         this.Rpower = Rpower;
         this.rtime = rtime;
     }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public Users getUser() {
+        return ruser;
+    }
+
+    public void setUser(Users user) {
+        this.ruser = user;
+    }
+
+
 
     public String getRid() {
         return this.rid;
@@ -61,22 +81,7 @@ public class Reply implements java.io.Serializable {
         this.rid = rid;
     }
 
-    public String getPid() {
-        return pid;
-    }
-
-    public void setPid(String pid) {
-        this.pid = pid;
-    }
-
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
-
+    
     public Integer getRpower() {
         return Rpower;
     }

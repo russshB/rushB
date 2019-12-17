@@ -7,6 +7,7 @@ package com.qdu.dao;
 
 import com.qdu.pojo.Post;
 import com.qdu.pojo.Reply;
+import com.qdu.pojo.Users;
 import java.io.Serializable;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -14,7 +15,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -27,6 +27,8 @@ public class PostDaoImpl implements Serializable,PostDao{
     
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private UsersDao usersDao;
     
     @Override
     public Post getPostById(String pid) {
@@ -104,5 +106,6 @@ public class PostDaoImpl implements Serializable,PostDao{
         return list;
         
     }
+
     
 }
