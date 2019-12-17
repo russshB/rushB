@@ -34,15 +34,15 @@ public class IndexController {
         return "index";
     }
     
-    @RequestMapping(value="/login", method = RequestMethod.POST)
-    public String login(String userid,
-                        String password,
-                        HttpSession session,Model model,RedirectAttributes modelMap) {
-        if(usersDao.getUserById(userid)==null) return "loginRrror";
-        else if(usersDao.getUserById(userid).getUpwd().equals(password)){
-            session.setAttribute("users", usersDao.getUserById(userid));
-            return "register";
-        }
-        else return "loginRrror";
-    }
+//    @RequestMapping(value="/login", method = RequestMethod.POST)
+//    public String login(String userid,
+//                        String password,
+//                        HttpSession session,Model model,RedirectAttributes modelMap) {
+//        if(usersDao.getUserById(userid)==null) return "loginError";
+//        else if(usersDao.getUserById(userid).getUpwd().equals(password)){
+//            session.setAttribute("users", usersDao.getUserById(userid));
+//            return "register";
+//        }
+//        else return "loginError";
+//    }
 }
