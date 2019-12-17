@@ -1,6 +1,7 @@
 package com.qdu.controller;
 
 import com.qdu.dao.UsersDao;
+import com.qdu.pojo.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -18,6 +20,11 @@ public class UsersController {
     @Autowired
     private UsersDao usersDao;
 
+    
+    @RequestMapping("/toregister")
+    public String register(){
+        return "register";
+    }
 
    @RequestMapping(value="/login", method = RequestMethod.POST)
     public String login(String userid,
@@ -31,5 +38,18 @@ public class UsersController {
         else return "loginError";
     }
 
+    @ResponseBody
+    @RequestMapping(value="/register", method = RequestMethod.POST,
+                        produces="text/html;charset=utf-8")
+    public String register(Users user,HttpSession session){
+        if(usersDao.getUserById(user.getUid())!=null)
+            return "该账号已被注册";
+        else{
+            usersDao.addUser(user);
+            return "0";
+        }
+            
+        
+    }
 
 }

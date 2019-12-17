@@ -29,7 +29,7 @@ public class IndexController {
     @RequestMapping({"/","/index"}) 
     public String index(Model model){
         
-        model.addAttribute("user",usersDao.getUserById("U001"));
+//        model.addAttribute("user",usersDao.getUserById("U001"));
         
         return "index";
     }

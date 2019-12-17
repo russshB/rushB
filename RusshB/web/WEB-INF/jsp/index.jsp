@@ -131,14 +131,15 @@
                     <div class=" layui-col-xs8 layui-col-sm8 layui-col-md8">
                         <input type="checkbox" name="rememberMe" value="true" title="记住密码">
                     </div>
-                    <div class="layui-col-xs4 layui-col-sm4 layui-col-md4 ">
-                        <button class="layui-btn layui-btn-sm layui-btn-primary layui-btn-radius"><a href="#">忘记密码</a></button>
-                    </div>
+                    
                 </div>
                 <div class="layui-form-item">
                     <input type="submit" class="layui-btn layui-btn-fluid" value="登入" />
                 </div>
             </form>
+            <div class="layui-col-xs4 layui-col-sm4 layui-col-md4 ">
+                        <button class="layui-btn layui-btn-sm layui-btn-primary layui-btn-radius"><a href="user/toregister">注册</a></button>
+                    </div>
         </div>
     </div>
 </div>

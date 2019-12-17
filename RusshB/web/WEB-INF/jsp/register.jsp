@@ -105,74 +105,60 @@
 </head>
 <body>
 <div class="layui-container">
-    <form class="layui-form login-form admin-login-background" action="">
+    <form id="form1" class="layui-form login-form admin-login-background" action="user/register" method="post">
         <div class="layui-form-item logo-title">
             <h1>用户注册<i class="layui-icon" style="font-size: 28px;">&#xe609;</i></h1>
         </div>
         <div class="layui-form-item">
             <label class="layui-icon layui-icon-user"></label>
-            <input type="text" name="nickname" placeholder="昵称" lay-verify="required|name" autocomplete="off"
+            <input type="text" name="uid" placeholder="账号" lay-verify="required|uid" autocomplete="off"
+                   class="layui-input">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon layui-icon-user"></label>
+            <input type="text" name="uimg" placeholder="头像" lay-verify="required|uimg" autocomplete="off"
+                   class="layui-input">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon layui-icon-user"></label>
+            <input type="text" name="uname" placeholder="昵称" lay-verify="required|name" autocomplete="off"
                    class="layui-input">
         </div>
         <div class="layui-form-item">
             <label class="layui-icon layui-icon-password"></label>
-            <input type="password" name="password" placeholder="密码" lay-verify="required|pass"
+            <input type="password" name="upwd" placeholder="密码" lay-verify="required|pass"
                    autocomplete="off" class="layui-input">
         </div>
-        <div class="layui-form-item">
+<!--        <div class="layui-form-item">
             <label class="layui-icon layui-icon-ok-circle"></label>
             <input type="password" name="replypassword" placeholder="请重复密码" lay-verify="required|pass"
                    autocomplete="off" class="layui-input">
+        </div>-->
+        <div class="layui-form-item ">
+            <label class="layui-icon layui-icon-release" for="pid"></label>
+            <input type="text" id="pid" name="upid" placeholder="身份证号" lay-verify="required|pid" autocomplete="off"
+                   class="layui-input">
         </div>
         <div class="layui-form-item ">
             <label class="layui-icon layui-icon-release" for="email"></label>
-            <input type="email" id="email" name="email" placeholder="邮箱" lay-verify="required|email" autocomplete="off"
+            <input type="email" id="email" name="uemail" placeholder="邮箱" lay-verify="required|email" autocomplete="off"
                    class="layui-input">
         </div>
-        <div class="layui-form-item">
+<!--        <div class="layui-form-item">
             <label class="layui-icon layui-icon-cellphone-fine"></label>
-            <input type="text" name="phone" placeholder="手机号" lay-verify="required|phone" autocomplete="off"
+            <input type="text" name="uphoneNo" placeholder="手机号" lay-verify="required|phone" autocomplete="off"
                    class="layui-input">
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-icon layui-icon-help"></label>
-            <input type="text" name="question" placeholder="密保问题" lay-verify="required" autocomplete="off"
-                   class="layui-input">
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-icon layui-icon-reply-fill"></label>
-            <input type="text" name="answer" placeholder="密保答案" lay-verify="required" autocomplete="off"
-                   class="layui-input">
-        </div>
-        <div class="layui-form-item">
+        </div>-->
+<!--        <div class="layui-form-item">
             <label class="layui-icon layui-icon-date"></label>
-            <input type="text" name="birthday" id="birthday" class="layui-input" lay-verify="required"
+            <input type="text" name="ubirthday" id="birthday" class="layui-input" lay-verify="required"
                    placeholder="生日">
-        </div>
-        <div class="layui-form-item" id="area-picker">
-            <div class="layui-input-inline" style="width: 100px;padding-left: 0px;">
-                <select name="province" id="province" class="province-selector" data-value="广东省" lay-verify="required"
-                        lay-filter="province-1">
-                    <option value="">请选择省</option>
-                </select>
-            </div>
-            <div class="layui-input-inline" style="width: 100px;">
-                <select name="city" id="city" class="city-selector" data-value="深圳市" lay-filter="city-1">
-                    <option value="">请选择市</option>
-                </select>
-            </div>
-            <div class="layui-input-inline" style="width: 100px;">
-                <select name="county" id="county" class="county-selector" data-value="龙岗区"
-                        lay-filter="county-1">
-                    <option value="">请选择区</option>
-                </select>
-            </div>
-        </div>
+        </div>-->
         <div class="layui-form-item">
             <label class="layui-icon">性别</label>
             <div class="layui-input-block">
-                <input type="radio" name="sex" value="男" title="男" checked>
-                <input type="radio" name="sex" value="女" title="女">
+                <input type="radio" name="ugender" value="男" title="男" checked>
+                <input type="radio" name="ugender" value="女" title="女">
             </div>
         </div>
         <div class="layui-form-item">
@@ -216,7 +202,7 @@
             laydate = layui.laydate,
             $ = layui.jquery;
 
-        // 登录过期的时候，跳出ifram框架
+      // 登录过期的时候，跳出ifram框架
         if (top.location != self.location) top.location = self.location;
 
         layarea.render({
@@ -231,38 +217,37 @@
             theme: 'grid',
             showBottom: false
         });
-
         // 进行登录操作
         var s = $("p").val();
         var s = document.getElementById("password");
         form.on('submit(login)', function (data) {
             data = data.field;
-            if (data.password != data.replypassword) {
+            if (data.Upwd != data.replypassword) {
                 layer.msg('密码前后不一致');
                 return false;
             }
             layer.open({
                 content: '酷毙了',
                 yes: function (index, layero) {
-                    window.location = 'login-1.html';
+                    window.location = 'login.html';
                 },
                 icon: 1,
                 area: ['500px', '300px']
             });
             $.ajax({
-                url: './add',
+                url: 'user/register',
                 method: 'post',
-                data: data.field,
-                dataType: 'JSON',
+                data: $("#form1").serialize(),
                 success: function (res) {
                     if (res.code = '0') {
                         layer.msg('注册成功', function () {
-                            window.location = '/index.html';
+                            window.location = '${pageContext.request.contextPath}/index';
                         });
                     } else
                         alert(res.msg);
                 },
                 error: function (data) {
+                        layer.msg('Ajax请求失败!')
                 }
             });
             return false;
