@@ -34,7 +34,7 @@ public class IndexController {
         return "index";
     }
     
-    @RequestMapping(value="/do", method = RequestMethod.POST)
+    @RequestMapping(value="/login", method = RequestMethod.POST)
     public String login(String userid,
                         String password,
                         HttpSession session,Model model,RedirectAttributes modelMap) {
