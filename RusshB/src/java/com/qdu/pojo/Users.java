@@ -8,6 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -57,6 +60,11 @@ public class Users implements java.io.Serializable {
     private List<Message> message;
     @OneToMany(mappedBy = "ruser",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
     private List<Reply> reply;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="star",
+               joinColumns = {@JoinColumn(name="suid",referencedColumnName = "uid")},
+                inverseJoinColumns = {@JoinColumn(name="spid",referencedColumnName="pid")})
+    private List<Post> likePosts;
     
     public Users(String uid, String uimg, String uname, String upwd, String ugender, Date ubirthday, String upid, String uemail, String uphoneNo, Integer upower) {
         this.uid = uid;
@@ -83,6 +91,33 @@ public class Users implements java.io.Serializable {
         this.upwd = upwd;
         this.ugender = ugender;
         this.upid = upid;
+    }
+
+    public Users(String uid, String uimg, String uname, String upwd, String ugender, Date ubirthday, String upid, String uemail, String uphoneNo, Integer upower, Integer urole, List<Post> posts, List<Message> sendMessage, List<Message> message, List<Reply> reply, List<Post> likePosts) {
+        this.uid = uid;
+        this.uimg = uimg;
+        this.uname = uname;
+        this.upwd = upwd;
+        this.ugender = ugender;
+        this.ubirthday = ubirthday;
+        this.upid = upid;
+        this.uemail = uemail;
+        this.uphoneNo = uphoneNo;
+        this.upower = upower;
+        this.urole = urole;
+        this.posts = posts;
+        this.sendMessage = sendMessage;
+        this.message = message;
+        this.reply = reply;
+        this.likePosts = likePosts;
+    }
+
+    public List<Post> getLikePosts() {
+        return likePosts;
+    }
+
+    public void setLikePosts(List<Post> likePosts) {
+        this.likePosts = likePosts;
     }
 
     public Integer getUrole() {

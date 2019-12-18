@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -46,9 +48,16 @@ public class Post implements java.io.Serializable {
     @OneToMany(mappedBy = "post",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
     private List<Reply> Replys;
     
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="Star",
+                joinColumns = {@JoinColumn(name="spid",referencedColumnName = "pid" )},
+                inverseJoinColumns = {@JoinColumn(name="suid",referencedColumnName = "uid")})
+    private List<Users> likedUsers;
+    
     public Post() {
     }
 
+    
     public Post(String pid, Users user, String ptitle, String pabstr, String pdetails, String pblock, Integer Ppower, Integer preadnum) {
         this.pid = pid;
         this.user = user;
@@ -67,6 +76,19 @@ public class Post implements java.io.Serializable {
         this.pabstr = pabstr;
         this.pdetails = pdetails;
         this.pblock = pblock;
+    }
+
+    public Post(String pid, Users user, String ptitle, String pabstr, String pdetails, String pblock, Integer Ppower, Integer preadnum, List<Reply> Replys, List<Users> likedUsers) {
+        this.pid = pid;
+        this.user = user;
+        this.ptitle = ptitle;
+        this.pabstr = pabstr;
+        this.pdetails = pdetails;
+        this.pblock = pblock;
+        this.Ppower = Ppower;
+        this.preadnum = preadnum;
+        this.Replys = Replys;
+        this.likedUsers = likedUsers;
     }
 
 
@@ -133,6 +155,22 @@ public class Post implements java.io.Serializable {
 
     public void setPpower(Integer Ppower) {
         this.Ppower = Ppower;
+    }
+
+    public List<Reply> getReplys() {
+        return Replys;
+    }
+
+    public void setReplys(List<Reply> Replys) {
+        this.Replys = Replys;
+    }
+
+    public List<Users> getLikedUsers() {
+        return likedUsers;
+    }
+
+    public void setLikedUsers(List<Users> likedUsers) {
+        this.likedUsers = likedUsers;
     }
 
  

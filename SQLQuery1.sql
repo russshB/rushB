@@ -49,6 +49,14 @@ foreign key(MbeenUid) references Users(Uid),
 foreign key(Muid) references Users(Uid)
 )
 go
+create table star(
+SUid nvarchar(20),
+SPid nvarchar(20),
+primary key(Suid,Spid),
+foreign key(SUid) references Users(Uid),
+foreign key(SPid) references Post(Pid)
+)
+go
 
 
 insert into Users values
@@ -85,6 +93,13 @@ insert into Message values
 ('M005','1999-1-5','U005','U001','ko no dio da£¡')
 go
 
+insert into star values
+('U001','P005'),
+('U001','P004')
+insert into star values
+('U001','P003'),
+('U001','P002')
+go
 
 --go
 --drop table Users
@@ -93,10 +108,12 @@ go
 --drop table Message
 --drop table Blockers
 --drop table Administer
+--drop table star
 go
 select * from Users
 select * from Post
 select * from Reply
 select * from Message
+select * from star
 go
 --delete from Users where uid = 'u0001'
