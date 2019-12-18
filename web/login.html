@@ -124,14 +124,14 @@
                     <h1>用户登录<i class="layui-icon" style="font-size: 28px;">&#xe609;</i></h1>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-icon layui-icon-username" for="userid"></label>
-                    <input type="text" id="userid" name="userid" placeholder="用户ID"
+                    <label class="layui-icon layui-icon-username" for="Uid"></label>
+                    <input type="text" id="Uid" name="Uid" placeholder="用户ID"
                            autocomplete="off"
                            class="layui-input">
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-icon layui-icon-password" for="password"></label>
-                    <input type="password" id="password" name="password" lay-verify="password" placeholder="密码"
+                    <label class="layui-icon layui-icon-password" for="UPwd"></label>
+                    <input type="password" id="UPwd" name="UPwd" lay-verify="password" placeholder="密码"
                            autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item layui-row">
@@ -170,10 +170,11 @@
         });
 
         // 进行登录操作
-
+        var uid = document.getElementById("#Uid");
+        var pwd = document.getElementById("#UPwd");
         form.on('submit(login)', function (data) {
             $.ajax({
-                url: './add',
+                url: '',
                 method: 'post',
                 data: data.field,
                 dataType: 'JSON',

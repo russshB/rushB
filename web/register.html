@@ -120,42 +120,32 @@
         </div>
         <div class="layui-form-item">
             <label class="layui-icon layui-icon-user"></label>
-            <input type="text" name="nickname" placeholder="昵称" lay-verify="required|name" autocomplete="off"
+            <input type="text" id="UName" name="UName" placeholder="用户名" lay-verify="required|name" autocomplete="off"
                    class="layui-input">
         </div>
         <div class="layui-form-item">
             <label class="layui-icon layui-icon-password"></label>
-            <input type="password" name="password" placeholder="密码" lay-verify="required|pass"
+            <input type="password" id="UPwd" name="UPwd" placeholder="密码" lay-verify="required|pass"
                    autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item">
             <label class="layui-icon layui-icon-ok-circle"></label>
-            <input type="password" name="replypassword" placeholder="请重复密码" lay-verify="required|pass"
+            <input type="password" id="replypwd" name="replypwd" placeholder="请重复密码" lay-verify="required|pass"
                    autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item ">
-            <label class="layui-icon layui-icon-release" for="email"></label>
-            <input type="email" id="email" name="email" placeholder="邮箱" lay-verify="required|email" autocomplete="off"
+            <label class="layui-icon layui-icon-release"></label>
+            <input type="email" id="UEM" name="UEM" placeholder="邮箱" lay-verify="required|email" autocomplete="off"
                    class="layui-input">
         </div>
         <div class="layui-form-item">
             <label class="layui-icon layui-icon-cellphone-fine"></label>
-            <input type="text" name="phone" placeholder="手机号" lay-verify="required|phone" autocomplete="off"
-                   class="layui-input">
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-icon layui-icon-help"></label>
-            <input type="text" name="question" placeholder="密保问题" lay-verify="required" autocomplete="off"
-                   class="layui-input">
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-icon layui-icon-reply-fill"></label>
-            <input type="text" name="answer" placeholder="密保答案" lay-verify="required" autocomplete="off"
+            <input type="text" id="UPhoneNo" name="UPhoneNo" placeholder="手机号" lay-verify="required|phone" autocomplete="off"
                    class="layui-input">
         </div>
         <div class="layui-form-item">
             <label class="layui-icon layui-icon-date"></label>
-            <input type="text" name="birthday" id="birthday" class="layui-input" lay-verify="required"
+            <input type="text" name="UBirthday" id="UBirthday" class="layui-input" lay-verify="required"
                    placeholder="生日">
         </div>
         <div class="layui-form-item" id="area-picker">
@@ -180,8 +170,8 @@
         <div class="layui-form-item">
             <label class="layui-icon">性别</label>
             <div class="layui-input-block">
-                <input type="radio" name="sex" value="男" title="男" checked>
-                <input type="radio" name="sex" value="女" title="女">
+                <input type="radio" name="UGender" value="男" title="男" checked>
+                <input type="radio" name="UGender" value="女" title="女">
             </div>
         </div>
         <div class="layui-form-item">
@@ -241,8 +231,8 @@
             showBottom: false
         });
 
-        // 进行登录操作
-        var s = $("p").val();
+        // 进行注册操作
+        var s = document.getElementById("")
         var s = document.getElementById("password");
         form.on('submit(login)', function (data) {
             data = data.field;
@@ -253,7 +243,7 @@
             layer.open({
                 content: '酷毙了',
                 yes: function (index, layero) {
-                    window.location = 'login-1.html';
+                    window.location = 'login.html';
                 },
                 icon: 1,
                 area: ['500px', '300px']
