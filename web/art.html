@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="lib/layui/css/layui.css">
     <link rel="stylesheet" href="lib/css/blog.css">
+    <link rel="stylesheet" href="lib/css/comment.css">
 </head>
 <body>
 <div class="layui-container">
@@ -65,34 +66,55 @@
                 <div class="mt20 f-fwn fs-24 fc-grey comment"
                      style="border-top: 1px solid #e1e2e0; padding-top: 20px;">
                 </div>
-                <fieldset class="layui-elem-field layui-field-title">
-                    <legend>发表评论</legend>
-                    <div class="layui-field-box">
-                        <div class="leavemessage" style="text-align:initial">
-                            <form class="layui-form blog-editor" action="">
-                                <input type="hidden" name="articleid" id="articleid" value="@Model.ID">
-                                <div class="layui-form-item">
-                                    <textarea name="editorContent" placeholder="请输入内容"
-                                              class="layui-textarea"></textarea>
+
+                <ul class="blog-comment" id="blog-comment">
+                    <div class="comment-show">
+                        <div class="comment-show-con clearfix">
+                            <div class="comment-show-con-img pull-left"><img src="lib/images/57.jpeg"></div>
+                            <div class="comment-show-con-list pull-left clearfix">
+                                <div class="pl-text clearfix">
+                                    <a href="#" class="comment-size-name">张三 : </a>
+                                    <span class="my-pl-con">&nbsp;来啊 造作啊!</span>
                                 </div>
-                                <div class="layui-form-item">
-                                    <button class="layui-btn" lay-submit="formLeaveMessage"
-                                            lay-filter="formLeaveMessage">提交留言
-                                    </button>
+                                <div class="date-dz">
+                                    <span class="date-dz-left pull-left comment-time">2017-5-2 11:11:39</span>
+                                    <div class="date-dz-right pull-right comment-pl-block">
+                                        <a href="javascript:;" class="removeBlock">删除</a>
+                                        <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a>
+                                        <span class="pull-left date-dz-line">|</span>
+                                        <a href="javascript:;" class="date-dz-z pull-left"><i class="date-dz-z-click-red"></i>赞 (<i class="z-num">666</i>)</a>
+                                    </div>
                                 </div>
-                            </form>
+                                <div class="hf-list-con"></div>
+                            </div>
                         </div>
                     </div>
-                </fieldset>
-                <ul class="blog-comment" id="blog-comment">
-
-                </ul>
+                </ul><fieldset class="layui-elem-field layui-field-title">
+                <legend>发表评论</legend>
+                <div class="layui-field-box">
+                    <div class="leavemessage" style="text-align:initial">
+                        <form class="layui-form blog-editor" action="">
+                            <input type="hidden" name="articleid" id="articleid" value="@Model.ID">
+                            <div class="layui-form-item">
+                                    <textarea name="editorContent" id="txt" placeholder="请输入内容"
+                                              class="layui-textarea"></textarea>
+                            </div>
+                            <div class="layui-form-item">
+                                <button class="layui-btn" lay-submit="formLeaveMessage"
+                                        lay-filter="formLeaveMessage">提交留言
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </fieldset>
             </section>
         </article>
     </div>
 </div>
 </div>
 <script src="lib/layui/layui.js"></script>
+<script src="lib/replybol"></script>
 <script>
     layui.use()
 </script>
