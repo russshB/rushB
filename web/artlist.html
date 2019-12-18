@@ -372,7 +372,7 @@
                     </div>
                 </div>
             </div>
-            <div class="layui-row">
+            <div class="layui-row" style="padding-top: 60px;">
                 <div id="page" style="text-align: center"></div>
             </div>
         </div>
@@ -391,7 +391,7 @@
             count: 50,
             limit:'10',
             theme:'#1E9FFF',
-            jump: function(obj, first){
+            jump: function(obj){
                 document.getElementById('ullist').innerHTML = function(){
                     var arr = []
                         ,thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);

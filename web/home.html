@@ -379,15 +379,9 @@
 <script src="lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
 <script src="lib/mousewords.js"></script>
 <script>
-    layui.use(['carousel', 'element'], function () {
-        var carousel = layui.carousel,
-            element = layui.element;
-        carousel.render({
-            elem: '#test1',
-            width: '100%',
-            arrow: 'always',
-            anim: 'default'
-        });
+    layui.use(['element','laypage'], function () {
+        var element = layui.element,
+        laypage = layui.laypage;
     });
 </script>
 </body>
