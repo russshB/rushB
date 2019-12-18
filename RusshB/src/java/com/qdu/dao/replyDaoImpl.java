@@ -29,7 +29,7 @@ public class replyDaoImpl implements Serializable,replyDao{
     private SessionFactory sessionFactory;
 
     @Override
-    public Reply getReplyById(String rid) {
+    public Reply getReplyById(int rid) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(Reply.class, rid);
     }
@@ -58,7 +58,7 @@ public class replyDaoImpl implements Serializable,replyDao{
     }
 
     @Override
-    public Boolean deleteReplyByRid(String rid) {
+    public Boolean deleteReplyByRid(int rid) {
         Session session = sessionFactory.getCurrentSession();
         
         if(null!=session.get(Reply.class, rid)){
@@ -71,7 +71,7 @@ public class replyDaoImpl implements Serializable,replyDao{
     }
 
     @Override
-    public void updateReply(String rid) {
+    public void updateReply(int rid) {
         Session session = sessionFactory.getCurrentSession();
         session.update(session.get(Reply.class, rid));
         

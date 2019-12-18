@@ -151,7 +151,7 @@
         </div>-->
 <!--        <div class="layui-form-item">
             <label class="layui-icon layui-icon-date"></label>
-            <input type="text" name="ubirthday" id="birthday" class="layui-input" lay-verify="required"
+            <input type="date" name="ubirthday" id="birthday" class="layui-input" lay-verify="required"
                    placeholder="生日">
         </div>-->
         <div class="layui-form-item">

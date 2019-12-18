@@ -17,19 +17,19 @@ import java.util.List;
 public interface PostDao {
 
     //根据id获得帖子信息
-    Post getPostById(String pid);
+    Post getPostById(int pid);
     //依据权限等级获得所有帖子
-    List<Post> getAllPostByPower(String power);
+    List<Post> getAllPostByPower(int power);
     //获得某个版块的所有帖子
     List<Post> getAllPostByBlocks(String block);
     //获得所有帖子信息
     List<Post> getAllPost();
     //获取某个id帖子的所有回复
-    List<Reply> getAllReplyByPost(String pid);
+    List<Reply> getAllReplyByPost(int pid);
     //添加新的帖子信息
     Boolean addPost(Post post);
     //根据id删除帖子
-    Boolean deletePostById(String pid);
+    Boolean deletePostById(int pid);
     //修改帖子信息
-    void updatePost(String pid);
+    void updatePost(int pid);
 }

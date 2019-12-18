@@ -27,7 +27,7 @@ public class MessageDaoImpl implements Serializable,MessageDao{
     private SessionFactory sessionFactory;
 
     @Override
-    public Message getMessageById(String mid) {
+    public Message getMessageById(int mid) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(Message.class, mid);
     }
@@ -55,7 +55,7 @@ public class MessageDaoImpl implements Serializable,MessageDao{
     }
 
     @Override
-    public Boolean deleteMessage(String mid) {
+    public Boolean deleteMessage(int mid) {
         Session session = sessionFactory.getCurrentSession();
         if(session.get(Message.class,mid)!=null){
             session.delete(session.get(Message.class,mid));
@@ -66,7 +66,7 @@ public class MessageDaoImpl implements Serializable,MessageDao{
     }
 
     @Override
-    public void updateMessage(String mid) {
+    public void updateMessage(int mid) {
         Session session = sessionFactory.getCurrentSession();
         session.update(session.get(Message.class,mid));
     }

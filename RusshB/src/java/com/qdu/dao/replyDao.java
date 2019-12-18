@@ -14,14 +14,14 @@ import java.util.List;
  */
 public interface replyDao {
     //根据id获得回复信息
-    Reply getReplyById(String rid);
+    Reply getReplyById(int rid);
     //获得所有回复同一条帖子的回复
     List<Reply> getAllReplyByPid(String pid);
     //添加新的回复
     Boolean addReply(Reply reply);
     //根据id删除回复
-    Boolean deleteReplyByRid(String rid);
+    Boolean deleteReplyByRid(int rid);
     //修改回复信息
-    void updateReply(String rid);
+    void updateReply(int rid);
     
 }

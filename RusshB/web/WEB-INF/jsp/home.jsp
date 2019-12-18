@@ -36,7 +36,7 @@
                 <c:forEach var="post" items="${posts}">
                     <div class="layui-row bet">
                     <div class="plist layui-col-md10">
-                        <a href="#">
+                        <a href="post/topostPage?pid=${post.getPid()}">
                             <!--帖子的标题或简略-->
                             <p>${post.getPdetails()}</p>
                         </a>
@@ -47,8 +47,8 @@
                     </div>
                     <div class="puser layui-col-md1">
                         <!--头像-->
-                        <a href="#">
-                            <img src="resources/images/57.jpeg">
+                        <a href="user/topersonhome2?uid=${users.getUid()}">
+                            <img src="resources/images/${users.getUimg()}.jpeg">
                         </a>
                     </div>
                 </div>
@@ -69,6 +69,8 @@
             arrow: 'always',
             anim: 'default'
         });
+        
+        
     });
 </script>
 </body>

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface MessageDao {
     //根据id获得消息
-    Message getMessageById(String mid);
+    Message getMessageById(int mid);
     //获得发送给某个用户的所有信息
     List<Message> getAllMessageByBeenUser(String uid);
     //获得某个用户发送的所有信息
@@ -22,7 +22,7 @@ public interface MessageDao {
     //添加新的信息
     Boolean addMessage(Message message);
     //根据id删除信息
-    Boolean deleteMessage(String mid);
+    Boolean deleteMessage(int mid);
     //修改信息
-    void updateMessage(String mid);
+    void updateMessage(int mid);
 }

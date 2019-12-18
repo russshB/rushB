@@ -31,7 +31,7 @@ public class PostDaoImpl implements Serializable,PostDao{
     private UsersDao usersDao;
     
     @Override
-    public Post getPostById(String pid) {
+    public Post getPostById(int pid) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(Post.class, pid);
     }
@@ -58,7 +58,7 @@ public class PostDaoImpl implements Serializable,PostDao{
     }
 
     @Override
-    public Boolean deletePostById(String pid) {
+    public Boolean deletePostById(int pid) {
         Session session = sessionFactory.getCurrentSession();
         session.get(Post.class, pid);
         if(null!=session.get(Post.class, pid)){
@@ -71,7 +71,7 @@ public class PostDaoImpl implements Serializable,PostDao{
     }
 
     @Override
-    public void updatePost(String pid) {
+    public void updatePost(int pid) {
          Session session = sessionFactory.getCurrentSession();
             session.update(session.get(Post.class, pid));
         
@@ -79,16 +79,17 @@ public class PostDaoImpl implements Serializable,PostDao{
     }
 
     @Override
-    public List<Reply> getAllReplyByPost(String pid) {
+    public List<Reply> getAllReplyByPost(int pid) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Reply where Rpid = :pid");
+        query.setParameter("pid", pid);
         List<Reply> list = query.list();
         
         return list;
     }
 
     @Override
-    public List<Post> getAllPostByPower(String power) {
+    public List<Post> getAllPostByPower(int power) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Post where Ppower = :power");
         query.setParameter("power",power);
