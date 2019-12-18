@@ -1,0 +1,25 @@
+#ullist{
+    border: 1px solid #fff;
+    margin-top: 60px;
+    background-color: #fff;
+    opacity: 0.6;
+}
+#ullist p{
+    margin-left: 8px;
+    margin-top: 10px;
+}
+#ullist .bet{
+    margin-top: 6px;
+    border-bottom: 1px solid #909baf;
+}
+.plist p{
+    width: 90%;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+.puser img{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
