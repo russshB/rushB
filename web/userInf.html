@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <style>
+        .login-form {
+            background-color: #fff;
+            border: 1px solid #fff;
+            border-radius: 6px;
+            padding: 8px 20px;
+            box-shadow: 0 0 8px #eeeeee;
+        }
+
+        .login-form .layui-form-item {
+            position: relative;
+        }
+
+        .login-form .layui-form-item label {
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            width: 38px;
+            line-height: 36px;
+            text-align: center;
+            color: #d2d2d2;
+        }
+
+        .login-form .layui-form-item input {
+            padding-left: 36px;
+        }
+        .login-form .layui-form-item img {
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            display: block;
+            margin: 0px 40%;
+        }
+        #area-picker input {
+            padding-left: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-container">
+    <div class="layui-row">
+        <ul class="layui-nav">
+            <li class="layui-nav-item"><a href=""><i class="layui-icon" style="font-size: 20px;">&#xe609;</i>首页</a>
+            </li>
+            <li class="layui-nav-item"><a href="">分类区</a></li>
+            <li class="layui-nav-item"><a href="">发布区</a></li>
+            <li class="layui-nav-item layui-layout-right"><a href=""><img src="lib/images/57.jpeg"
+                                                                          style="width: 50px;height: 50px;"
+                                                                          class="layui-circle"></a></li>
+        </ul>
+    </div>
+    <div class="layui-row">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>用户信息</legend>
+        </fieldset>
+    </div>
+    <form class="layui-form login-form admin-login-background" lay-filter="ex" action="">
+        <div class="layui-form-item">
+            <a href="#"><img src="lib/images/57.jpeg"></a>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon layui-icon-user"></label>
+            <input type="text" id="UName" name="UName" placeholder="用户名" lay-verify="required|name" autocomplete="off"
+                   class="layui-input">
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-icon layui-icon-release"></label>
+            <input type="email" id="UEM" name="UEM" placeholder="邮箱" lay-verify="required|email" autocomplete="off"
+                   class="layui-input">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon layui-icon-cellphone-fine"></label>
+            <input type="text" id="UPhoneNo" name="UPhoneNo" placeholder="手机号" lay-verify="required|phone"
+                   autocomplete="off"
+                   class="layui-input">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon layui-icon-date"></label>
+            <input type="text" name="UBirthday" id="UBirthday" class="layui-input" lay-verify="required"
+                   placeholder="生日">
+        </div>
+        <div class="layui-form-item" id="area-picker">
+            <div class="layui-input-inline" style="width: 100px;padding-left: 0px;">
+                <select name="province" id="province" class="province-selector" lay-verify="required"
+                        lay-filter="province-1">
+                    <option value="">请选择省</option>
+                </select>
+            </div>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select name="city" id="city" class="city-selector" lay-filter="city-1">
+                    <option value="">请选择市</option>
+                </select>
+            </div>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select name="county" id="county" class="county-selector" lay-filter="county-1">
+                    <option value="">请选择区</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon">性别</label>
+            <div class="layui-input-block">
+                <input type="radio" name="UGender" value="男" title="男" checked>
+                <input type="radio" name="UGender" value="女" title="女">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="">确定</button>
+        </div>
+    </form>
+</div>
+<script src="lib/layui/layui.js"></script>
+<script src="lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="lib/lay/lay-config.js"></script>
+<script src="lib/mousewords.js"></script>
+<script>
+    layui.use(['form', 'layarea', 'layer', 'laydate'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            layarea = layui.layarea,
+            laydate = layui.laydate,
+            $ = layui.jquery;
+
+        layarea.render({
+            elem: '#area-picker',
+            change: function (res) {
+                //选择结果
+                console.log(res);
+            }
+        });
+        laydate.render({
+            elem: '#UBirthday',//指定元素
+            theme: 'grid',
+            showBottom: false
+        });
+// 页面初始显示的值
+        form.val('ex', {
+            "UName": "九万七",
+            "UEM": "783487703@.com",
+            "UPhoneNo":"17852423220",
+            "UBirthday":"2000-05-18",
+            "province":370000,
+            "city":"青岛",
+            "county":"崂山",
+            "UGender":"男"
+        })
+    })
+
+</script>
+</body>
+</html>
