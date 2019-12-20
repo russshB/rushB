@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+</head>
+<body>
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-form" action="">
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <select name="" lay-verify="required">
+                        <!--要是觉得这个选项框不好写，就不用了，改成俩页面也行-->
+                        <option value=""></option>
+                        <option value="1">用户</option>
+                        <option value="2">帖子</option>
+                    </select>
+                    <button class="layui-btn layui-layout-right" lay-submit lay-filter="formDemo">立即提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-row">
+        <fieldset class="layui-elem-field layui-field-title">
+            <!--或者帖子表-->
+            <legend>用户表</legend>
+        </fieldset>
+        <table class="layui-table">
+            <thead>
+            <tr>
+                <th>用户id</th>
+                <th>用户名</th>
+                <th>性别</th>
+                <th>用户等级</th>
+                <th>手机号</th>
+                <th>邮箱</th>
+                <th>住宅</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>001</td>
+                <td>九万七</td>
+                <td>男</td>
+                <td>vip6</td>
+                <td>17852423220</td>
+                <td>783487703@qq.com</td>
+                <td>山东青岛</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="lib/layui/layui.js"></script>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    })
+</script>
+</body>
+</html>

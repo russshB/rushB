@@ -1,4 +1,4 @@
-var txt = document.getElementsByClassName('txt')[0];
+var txt = document.getElementById('text');
 var btn = document.getElementsByTagName('button')[0];
 var pl = document.getElementsByClassName('blog-comment')[0];
 var Olen = document.getElementById('len');
