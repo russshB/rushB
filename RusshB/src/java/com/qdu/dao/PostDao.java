@@ -32,4 +32,6 @@ public interface PostDao {
     Boolean deletePostById(int pid);
     //修改帖子信息
     void updatePost(int pid);
+    //通过用户id获取所有帖子
+    List<Post> getAllPostByuid(String uid);
 }

@@ -1,6 +1,7 @@
 package com.qdu.pojo;
 // Generated 2019-12-10 22:48:34 by Hibernate Tools 4.3.1
 
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -32,15 +37,17 @@ public class Reply implements java.io.Serializable {
     @JoinColumn(name = "Rpid")
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Post post;
-    @JoinColumn(name = "Ruid")
+    @JoinColumn(name = "Ruid",unique = false)
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Users ruser;
     @Column(name = "Rcontent", nullable = false)
     private String rcontent;
     @Column(name = "Rpower", columnDefinition = "int default 0")
     private Integer Rpower;
-    @Column(name = "Rtime", nullable = true, length = 23)
-    private String rtime;
+    @Column(name = "Rtime")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Generated(GenerationTime.INSERT)
+    private Date rtime;
 
     public Reply() {
     }
@@ -101,11 +108,11 @@ public class Reply implements java.io.Serializable {
         this.rcontent = rcontent;
     }
 
-    public String getRtime() {
+    public Date getRtime() {
         return this.rtime;
     }
 
-    public void setRtime(String rtime) {
+    public void setRtime(Date rtime) {
         this.rtime = rtime;
     }
 

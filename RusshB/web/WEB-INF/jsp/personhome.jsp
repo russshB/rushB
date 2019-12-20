@@ -16,7 +16,7 @@
                 <li class="layui-nav-item"><a href=""><i class="layui-icon" style="font-size: 20px;">&#xe609;</i>首页</a>
                 </li>
                 <li class="layui-nav-item"><a href="">分类区</a></li>
-                <li class="layui-nav-item"><a href="">发布区</a></li>
+                <li class="layui-nav-item"><a href="post/newpost">发布区</a></li>
                 <li class="layui-nav-item layui-layout-right layui-this"><a href=""><img src="resources/images/${users.getUimg()}.jpeg"
                                                                                          style="width: 50px;height: 50px;"
                                                                                          class="layui-circle"></a></li>
@@ -44,14 +44,11 @@
                     <p>${users.getUemail()}</p>
                 </div>
             </div>
-            <c:forEach var="m" items="${users.getSendMessage()}">
-                ${m.getMdetail()}
-            </c:forEach>
             <!--喜欢的帖子列-->
             <div class="layui-row layui-col-md5 layui-col-md-offset1">
-                <p>喜欢的帖子</p>
+                <p>自己发布的帖子</p>
                 <hr class="layui-bg-blue">
-                <c:forEach var="post" items="${users.getLikePosts()}">
+                <c:forEach var="post" items="${SelfPost}">
 
                     <div class="layui-row">
                         <div class="plist layui-col-md9">
@@ -67,36 +64,21 @@
 
                 </c:forEach>  
             </div>
-            <!--        <div class="layui-row layui-col-md5 layui-col-md-offset1">
-                        <p>喜欢的帖子</p>
-                        <hr class="layui-bg-blue">
-                        <div class="layui-row">
-                            <div class="plist layui-col-md9">
-                                <p>从明天起, 做一个幸福的人,喂马, 劈柴, 周游世界,从明天起, 关心粮食和蔬菜,我有一所房子, 面朝大海, 春暖花开,从明天起,
-                                    和每一个亲人通信,告诉他们我的幸福,那幸福的闪电告诉我的,我将告诉每一个人,给每一条河每一座山取一个温暖的名字,陌生人,
-                                    我也为你祝福,愿你有一个灿烂的前程,愿你有情人终成眷属,愿你在尘世获得幸福,我只愿面朝大海, 春暖花开</p>
-                            </div>
-                            <div class="plist layui-col-md2">
-                                <p>九万七</p>
-                            </div>
-                            <div class="layui-col-md1 puser">
-                                <img src="resources/images/${users.getUimg()}.jpeg">
-                            </div>
-                        </div>
-                    </div>-->
-            <!--好友列-->
+
             <div class="layui-row layui-col-md4 layui-col-md-offset1">
-                <p>好友</p>
-                <hr class="layui-bg-cyan">
-                <div class="layui-col-md2">
-                    <p>九万七</p>
-                </div>
-                <div class="layui-col-md4">
-                    <p><i class="layui-icon" style="color:#1E9FFF;">&#xe678;</i>17852423220</p>
-                </div>
-                <div class="layui-col-md1 layui-col-md-offset5">
-                    <a><i class="layui-icon" style="color: #009688;font-size: 20px;">&#xe63a;</i></a>
-                </div>
+                <p>信息</p>
+                    <hr class="layui-bg-cyan">
+                <c:forEach var="m" items="${message}">
+                    <div class="layui-col-md2">
+                        <p>${m.getMuser()}</p>
+                        <div class="layui-col-md4">
+                            <p><i class="layui-icon" style="color:#1E9FFF;">&#xe678;</i>17852423220</p>
+                        </div>
+                        <div class="layui-col-md1 layui-col-md-offset5">
+                            <a><i class="layui-icon" style="color: #009688;font-size: 20px;">&#xe63a;</i></a>
+                        </div>
+                    </div>
+                </c:forEach>
             </div>
         </div>
     </div>

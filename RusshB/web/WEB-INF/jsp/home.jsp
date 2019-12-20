@@ -23,8 +23,8 @@
             <li class="layui-nav-item layui-this"><a href=""><i class="layui-icon" style="font-size: 20px;">&#xe609;</i>首页</a>
             </li>
             <li class="layui-nav-item"><a href="">分类区</a></li>
-            <li class="layui-nav-item"><a href="">发布区</a></li>
-            <li class="layui-nav-item layui-layout-right"><a href="user/topersonhome"><img src="resources/images/${users.getUimg()}.jpeg"
+            <li class="layui-nav-item"><a href="post/newpost">发布区</a></li>
+            <li class="layui-nav-item layui-layout-right"><a href="user/topersonhome?uid=${users.getUid()}"><img src="resources/images/${users.getUimg()}.jpeg"
                                                                           style="width: 50px;height: 50px;"
                                                                           class="layui-circle"></a></li>
         </ul>
@@ -38,7 +38,7 @@
                     <div class="plist layui-col-md10">
                         <a href="post/topostPage?pid=${post.getPid()}">
                             <!--帖子的标题或简略-->
-                            <p>${post.getPdetails()}</p>
+                            <p>${post.getPabstr()}</p>
                         </a>
                     </div>
                     <div class="layui-col-md1">
@@ -47,8 +47,8 @@
                     </div>
                     <div class="puser layui-col-md1">
                         <!--头像-->
-                        <a href="user/topersonhome2?uid=${users.getUid()}">
-                            <img src="resources/images/${users.getUimg()}.jpeg">
+                        <a href="user/topersonhome?uid=${post.getUser().getUid()}">
+                            <img src="resources/images/${post.getUser().getUimg()}.jpeg">
                         </a>
                     </div>
                 </div>

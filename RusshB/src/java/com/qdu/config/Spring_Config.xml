@@ -35,6 +35,8 @@
                 <value>com.qdu.pojo.Post</value>
                 <value>com.qdu.pojo.Message</value>
                 <value>com.qdu.pojo.Reply</value>
+                <value>com.qdu.pojo.Star</value>
+                <value>com.qdu.pojo.Administer</value>
             </list>
         </property>
         <property name="hibernateProperties">

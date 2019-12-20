@@ -46,4 +46,5 @@ Contributor(s):
   <table-filter match-name="Reply"/>
   <table-filter match-name="Message"/>
   <table-filter match-name="star"/>
+  <table-filter match-name="Administer"/>
 </hibernate-reverse-engineering>

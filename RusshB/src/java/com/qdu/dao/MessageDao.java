@@ -6,6 +6,7 @@
 package com.qdu.dao;
 
 import com.qdu.pojo.Message;
+import com.qdu.pojo.Users;
 import java.util.List;
 
 /**

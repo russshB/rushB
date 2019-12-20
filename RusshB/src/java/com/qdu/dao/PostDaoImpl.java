@@ -48,7 +48,7 @@ public class PostDaoImpl implements Serializable,PostDao{
     public Boolean addPost(Post post) {
         Session session = sessionFactory.getCurrentSession();
         if (null == getPostById(post.getPid())) {
-            session.save(getPostById(post.getPid()));
+            session.save(post);
             return true;
             
         } else {
@@ -106,6 +106,17 @@ public class PostDaoImpl implements Serializable,PostDao{
         List<Post> list = query.list();
         return list;
         
+    }
+
+    @Override
+    public List<Post> getAllPostByuid(String uid) {
+        Session session = sessionFactory.getCurrentSession();
+        
+        Query query = session.createQuery("from Post where Puser = :uid");
+        query.setParameter("uid", uid);
+        List<Post> list = query.list();
+        
+        return list;
     }
 
     

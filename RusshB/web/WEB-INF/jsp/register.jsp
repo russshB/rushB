@@ -114,11 +114,11 @@
             <input type="text" name="uid" placeholder="账号" lay-verify="required|uid" autocomplete="off"
                    class="layui-input">
         </div>
-        <div class="layui-form-item">
+<!--        <div class="layui-form-item">
             <label class="layui-icon layui-icon-user"></label>
             <input type="text" name="uimg" placeholder="头像" lay-verify="required|uimg" autocomplete="off"
                    class="layui-input">
-        </div>
+        </div>-->
         <div class="layui-form-item">
             <label class="layui-icon layui-icon-user"></label>
             <input type="text" name="uname" placeholder="昵称" lay-verify="required|name" autocomplete="off"

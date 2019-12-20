@@ -11,12 +11,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
+import org.hibernate.annotations.DynamicInsert;
 
 /**
  *
  * @author Administrator
  */
 @Entity
+@DynamicInsert
 @Table(name = "star")
 @IdClass(StarKey.class)
 public class Star implements Serializable{

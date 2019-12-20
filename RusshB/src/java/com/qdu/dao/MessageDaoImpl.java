@@ -6,6 +6,7 @@
 package com.qdu.dao;
 
 import com.qdu.pojo.Message;
+import com.qdu.pojo.Users;
 import java.io.Serializable;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -13,7 +14,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -25,6 +25,8 @@ import org.springframework.stereotype.Repository;
 public class MessageDaoImpl implements Serializable,MessageDao{
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private UsersDao usersDao;
 
     @Override
     public Message getMessageById(int mid) {
@@ -35,8 +37,8 @@ public class MessageDaoImpl implements Serializable,MessageDao{
     @Override
     public List<Message> getAllMessageByBeenUser(String uid) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from Message where beenuid = :uid");
-        query.setParameter("uid", uid);
+        Query query = session.createQuery("from Message where beenuser = :uid");
+        query.setParameter("uid", usersDao.getUserById(uid));
         List<Message>  list = query.list();
         
         return list;
@@ -74,8 +76,8 @@ public class MessageDaoImpl implements Serializable,MessageDao{
     @Override
     public List<Message> getAllMessageByUser(String uid) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from Message where muid = :mid");
-        query.setParameter("muid", uid);
+        Query query = session.createQuery("from Message where muser = :mid");
+        query.setParameter("mid", usersDao.getUserById(uid));
         List<Message> list = query.list();
         return list;
     }

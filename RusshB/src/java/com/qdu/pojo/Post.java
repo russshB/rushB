@@ -1,6 +1,7 @@
 package com.qdu.pojo;
 // Generated 2019-12-10 22:48:34 by Hibernate Tools 4.3.1
 
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,7 +15,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -48,7 +53,13 @@ public class Post implements java.io.Serializable {
     private Integer Ppower;
     @Column(name = "Preadnum", columnDefinition = "int default 0")
     private Integer preadnum;
+    @Column(name = "Ptime")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Generated(GenerationTime.INSERT)
+    private Date pdate;
 
+    
+    
     @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Reply> Replys;
 
@@ -64,6 +75,16 @@ public class Post implements java.io.Serializable {
     public Post() {
     }
 
+    public Post(Users user, String ptitle, String pabstr, String pdetails, String pblock) {
+        this.user = user;
+        this.ptitle = ptitle;
+        this.pabstr = pabstr;
+        this.pdetails = pdetails;
+        this.pblock = pblock;
+    }
+
+    
+    
     public Post(int pid, Users user, String ptitle, String pabstr, String pdetails, String pblock, Integer Ppower, Integer preadnum) {
         this.pid = pid;
         this.user = user;
@@ -95,6 +116,14 @@ public class Post implements java.io.Serializable {
         this.preadnum = preadnum;
         this.Replys = Replys;
         this.likedUsers = likedUsers;
+    }
+
+    public Date getPdate() {
+        return pdate;
+    }
+
+    public void setPdate(Date pdate) {
+        this.pdate = pdate;
     }
 
 

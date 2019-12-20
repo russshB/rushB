@@ -214,8 +214,8 @@
         <div style="text-align:center;clear:both;">
         </div>
         <div class="content">
-            <a class="card" href="#!">
-                <div class="front" style="background-image: url(${pageContext.request.contextPath}/resoures/images/57.jpeg);">
+            <a class="card" href="post/getAllpostsByBlock?block=1">
+                <div class="front" style="background-image: url(resources/images/57.jpeg);">
                     <p>动漫区</p>
                 </div>
                 <div class="back">
@@ -226,8 +226,8 @@
                     </div>
                 </div>
             </a>
-            <a class="card" href="#!">
-                <div class="front" style="background-image: url(${pageContext.request.contextPath}/resoures/images/60.jpeg);">
+            <a class="card" href="post/getAllpostsByBlock?block=2">
+                <div class="front" style="background-image: url(resources/images/60.jpeg);">
                     <p>影视区</p>
                 </div>
                 <div class="back">
@@ -237,8 +237,8 @@
                         <button class="button">Click Here</button>
                     </div>
                 </div>
-            </a><a class="card" href="#!">
-                <div class="front" style="background-image: url(${pageContext.request.contextPath}/resoures/images/63.jpeg);">
+            </a><a class="card" href="post/getAllpostsByBlock?block=3">
+                <div class="front" style="background-image: url(resources/images/63.jpeg);">
                     <p>运动区</p>
                 </div>
                 <div class="back">
@@ -248,8 +248,8 @@
                         <button class="button">Click Here</button>
                     </div>
                 </div>
-            </a><a class="card" href="#!">
-                <div class="front" style="background-image: url(${pageContext.request.contextPath}/resoures/images/79.jpeg);">
+            </a><a class="card" href="post/getAllpostsByBlock?block=4">
+                <div class="front" style="background-image: url(resources/images/79.jpeg);">
                     <p>数码</p>
                 </div>
                 <div class="back">
@@ -259,8 +259,8 @@
                         <button class="button">Click Here</button>
                     </div>
                 </div>
-            </a><a class="card" href="#!">
-                <div class="front" style="background-image: url(${pageContext.request.contextPath}/resoures/images/80.jpeg);">
+            </a><a class="card" href="post/getAllpostsByBlock?block=5">
+                <div class="front" style="background-image: url(resources/images/80.jpeg);">
                     <p>养生区</p>
                 </div>
                 <div class="back">
@@ -270,8 +270,8 @@
                         <button class="button">Click Here</button>
                     </div>
                 </div>
-            </a><a class="card" href="#!">
-                <div class="front" style="background-image: url(${pageContext.request.contextPath}/resoures/images/91.jpeg);">
+            </a><a class="card" href="post/getAllpostsByBlock?block=6">
+                <div class="front" style="background-image: url(resources/images/91.jpeg);">
                     <p>旅游</p>
                 </div>
                 <div class="back">

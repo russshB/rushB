@@ -1,5 +1,7 @@
 package com.qdu.controller;
 
+import com.qdu.dao.PostDao;
+import com.qdu.dao.UsersDao;
 import com.qdu.dao.replyDao;
 import com.qdu.pojo.Post;
 import com.qdu.pojo.Reply;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/reply")
@@ -17,6 +21,11 @@ public class ReplyController {
 
     @Autowired
     private replyDao replyDao1;
+    @Autowired
+    private UsersDao userDao;
+    @Autowired
+    private PostDao postdao;
+    
 
 
     //根据id获得回复信息
@@ -34,11 +43,14 @@ public class ReplyController {
     }
 
     //添加新的回复
-    @RequestMapping("/addReply")
-    @ResponseBody
-    public Boolean addReply(Reply reply){
-//        Reply reply = new Reply(post, user, detail);
-        return replyDao1.addReply(reply);
+    @RequestMapping(value = "/addReply",method = RequestMethod.GET)
+//    @ResponseBody
+    public String addReply(@RequestParam("post")int pid,@RequestParam("ruser")String uid,@RequestParam("rcontent")String rcontent){
+//        boolean flag = replyDao1.addReply(reply);
+        Reply reply = new  Reply(postdao.getPostById(pid),userDao.getUserById(uid),rcontent);
+        replyDao1.addReply(reply);
+    return "redirect:/post/topostPage?pid="+pid;
+        
     }
 
     //根据id删除回复

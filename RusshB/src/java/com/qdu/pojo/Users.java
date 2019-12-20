@@ -31,7 +31,7 @@ public class Users implements java.io.Serializable {
     @Id
     @Column(name = "Uid", unique = true, nullable = false)
     private String uid;
-    @Column(name = "Uimg", nullable = false)
+    @Column(name = "Uimg", nullable = false,columnDefinition = "String default 1")
     private String uimg;
     @Column(name = "Uname", nullable = false)
     private String uname;
@@ -54,10 +54,10 @@ public class Users implements java.io.Serializable {
     private Integer urole;
     @OneToMany(mappedBy = "user",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
     private List<Post> posts;
-    @OneToMany(mappedBy = "muser",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
-    private List<Message> sendMessage;
-    @OneToMany(mappedBy = "beenuser",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
-    private List<Message> message;
+//    @OneToMany(mappedBy = "muser",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
+//    private List<Message> sendMessage;
+//    @OneToMany(mappedBy = "beenuser",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
+//    private List<Message> message;
     @OneToMany(mappedBy = "ruser",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
     private List<Reply> reply;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -93,24 +93,6 @@ public class Users implements java.io.Serializable {
         this.upid = upid;
     }
 
-    public Users(String uid, String uimg, String uname, String upwd, String ugender, Date ubirthday, String upid, String uemail, String uphoneNo, Integer upower, Integer urole, List<Post> posts, List<Message> sendMessage, List<Message> message, List<Reply> reply, List<Post> likePosts) {
-        this.uid = uid;
-        this.uimg = uimg;
-        this.uname = uname;
-        this.upwd = upwd;
-        this.ugender = ugender;
-        this.ubirthday = ubirthday;
-        this.upid = upid;
-        this.uemail = uemail;
-        this.uphoneNo = uphoneNo;
-        this.upower = upower;
-        this.urole = urole;
-        this.posts = posts;
-        this.sendMessage = sendMessage;
-        this.message = message;
-        this.reply = reply;
-        this.likePosts = likePosts;
-    }
 
     public List<Post> getLikePosts() {
         return likePosts;
@@ -215,22 +197,6 @@ public class Users implements java.io.Serializable {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
-    }
-
-    public List<Message> getSendMessage() {
-        return sendMessage;
-    }
-
-    public void setSendMessage(List<Message> sendMessage) {
-        this.sendMessage = sendMessage;
-    }
-
-    public List<Message> getMessage() {
-        return message;
-    }
-
-    public void setMessage(List<Message> message) {
-        this.message = message;
     }
 
     public List<Reply> getReply() {
