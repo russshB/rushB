@@ -38,6 +38,7 @@
                 <th>用户等级</th>
                 <th>手机号</th>
                 <th>邮箱</th>
+                <th>删除选择</th>
             </tr>
             </thead>
             <c:forEach var="user" items="${Alluser}">
@@ -49,6 +50,7 @@
                 <td>${user.getUpower()}</td>
                 <td>${user.getUphoneNo()}</td>
                 <td>${user.getUemail()}</td>
+                <td><a href="user/deleteUser?uid=${user.getUid()}">删除</a></td>
             </tr>
             </tbody>
             </c:forEach>

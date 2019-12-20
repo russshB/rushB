@@ -68,5 +68,13 @@ public class UsersController {
             
         
     }
+    
+    @RequestMapping("/deleteUser")
+    public String deleteUser(String uid, Model model){
+        usersDao.deleteUser(uid);
+        model.addAttribute("Alluser",usersDao.getAllUsers());
+        model.addAttribute("Allpost",postDao.getAllPost());
+        return "userManage";
+    }
 
 }

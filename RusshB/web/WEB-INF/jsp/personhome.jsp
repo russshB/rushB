@@ -60,6 +60,7 @@
                         <div class="layui-col-md1 puser">
                             <img src="resources/images/${post.getUser().getUimg()}.jpeg">
                         </div>
+                        <a href="post/deletePost?pid=${post.getPid()}&uid=${users.getUid()}">删除此帖</a>
                     </div>
 
                 </c:forEach>  

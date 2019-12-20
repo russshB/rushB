@@ -56,4 +56,12 @@ public class PostController{
         postDao.addPost(post);
         return "transPage";
     }
+    
+    @RequestMapping("/deletePost")
+    public String deletePost(@RequestParam("pid")int pid,
+                               @RequestParam("uid")String uid){
+        postDao.deletePostById(pid);
+        return "redirect:/user/topersonhome?uid="+uid;
+    }
+    
 }

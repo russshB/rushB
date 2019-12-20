@@ -32,7 +32,7 @@ public class AdministerController {
     
     @RequestMapping(value = "/adminLogin",method = RequestMethod.POST)
     public String adminLogin(@RequestParam("username")String aid,@RequestParam("password")String pwd,Model model){
-        
+        if(administerDao.getAdministerById(aid) == null) return "loginError";
         if(administerDao.getAdministerById(aid).getPwd().equals(pwd)){
             model.addAttribute("Alluser",usersDao.getAllUsers());
             model.addAttribute("Allpost",postDao.getAllPost());
@@ -40,6 +40,11 @@ public class AdministerController {
         }
         else
             return "loginError";
+    }
+    
+    @RequestMapping("/toAdminLogin")
+    public String toAdminLogin(){
+        return "adminLogin";
     }
     
 }

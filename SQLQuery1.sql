@@ -115,13 +115,18 @@ insert into Administer values
 --drop table Reply
 --drop table Message
 --drop table star
+--delete  post
+--delete Reply
+--delete Message
 go
 select * from Users
 select * from Post
 select * from Reply
 select * from Message
 select * from star
-
+--dbcc checkident('Post',reseed,0)
+--dbcc checkident('Reply',reseed,0)
+--dbcc checkident('Message',reseed,0)
 go
 
 

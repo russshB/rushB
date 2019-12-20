@@ -52,13 +52,13 @@ public class Users implements java.io.Serializable {
     private Integer upower;
     @Column(name = "URole", columnDefinition = "int default 0")
     private Integer urole;
-    @OneToMany(mappedBy = "user",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Post> posts;
-//    @OneToMany(mappedBy = "muser",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
-//    private List<Message> sendMessage;
-//    @OneToMany(mappedBy = "beenuser",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
-//    private List<Message> message;
-    @OneToMany(mappedBy = "ruser",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "muser",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Message> sendMessage;
+    @OneToMany(mappedBy = "beenuser",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Message> message;
+    @OneToMany(mappedBy = "ruser",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Reply> reply;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="star",

@@ -31,10 +31,10 @@ public class Message implements java.io.Serializable {
     @Column(name = "Mid", unique = true, nullable = false)
     private int mid;
     @JoinColumn(name = "MbeenUid")
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Users beenuser;
     @JoinColumn(name = "Muid")
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Users muser;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "Mdate", nullable = true, length = 23)

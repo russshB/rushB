@@ -39,7 +39,7 @@ public class Post implements java.io.Serializable {
     @Column(name = "Pid", unique = true, nullable = false)
     private int pid;
     @JoinColumn(name = "Puser")
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Users user;
     @Column(name = "Ptitle", nullable = false)
     private String ptitle;

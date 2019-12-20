@@ -35,10 +35,10 @@ public class Reply implements java.io.Serializable {
     @Column(name = "Rid", unique = true, nullable = false)
     private int rid;
     @JoinColumn(name = "Rpid")
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
     private Post post;
     @JoinColumn(name = "Ruid",unique = false)
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
     private Users ruser;
     @Column(name = "Rcontent", nullable = false)
     private String rcontent;
